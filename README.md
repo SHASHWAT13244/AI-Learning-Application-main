@@ -185,7 +185,7 @@ text
 🔗 **[Frontend](https://ai-learning-frontend.onrender.com)** – Explore the application  
 🔗 **[Backend API](https://ai-learning-backend-g6h7.onrender.com)** – RESTful API endpoint  
 
-> **Note:** Render's free tier spins down after 15 minutes of inactivity. The first request may take 30-60 seconds to wake up.
+
 
 ---
 
@@ -200,12 +200,5 @@ text
 
 ---
 
-## 📝 License  
 
-MIT License – feel free to use this project for learning and development.
 
----
-
-**⭐ If you found this project helpful, consider giving it a star on GitHub!**  
-
-[![Star on GitHub](https://img.shields.io/github/stars/SHASHWAT13244/AI-Learning-Application-main?style=social)](https://github.com/SHASHWAT13244/AI-Learning-Application-main)
