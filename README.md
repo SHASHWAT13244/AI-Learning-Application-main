@@ -187,8 +187,6 @@ text
 🔗 **[Frontend](https://ai-learning-frontend.onrender.com)** – Explore the application  
 🔗 **[Backend API](https://ai-learning-backend-g6h7.onrender.com)** – RESTful API endpoint  
 
-
-
 ---
 
 ## 🧑‍💻 Author  
