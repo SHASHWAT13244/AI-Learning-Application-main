@@ -26,6 +26,8 @@ A powerful full-stack learning assistant that leverages Google Gemini AI to help
 
 Built with the MERN stack and TypeScript, this application demonstrates advanced AI integration, file processing, and responsive design principles.
 
+**Group Members:** SHASHWAT KHANDELWAL, YOGENDRA PAL SINGH PAIKRA, SHIVANSH MISHRA, ROHIT SINGH
+
 ---
 
 ## 🔧 Key Features  
