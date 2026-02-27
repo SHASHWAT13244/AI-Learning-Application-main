@@ -184,7 +184,7 @@ text
 
 ## 🌐 Live Demo  
 
-🔗 **[Frontend](https://ai-learning-frontend.onrender.com)** – Explore the application  
+🔗 **[Frontend](https://ai-learning-frontend-m2zj.onrender.com/)** – Explore the application  
 🔗 **[Backend API](https://ai-learning-backend-g6h7.onrender.com)** – RESTful API endpoint  
 
 ---
