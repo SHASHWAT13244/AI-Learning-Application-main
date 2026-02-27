@@ -1,160 +1,211 @@
-# AI-Powered Learning Assistant App
+# 🤖 AI-Powered Learning Assistant – Your Smart Study Companion  
+**MongoDB • Express • React • Node.js • Google Gemini AI • TypeScript**  
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](#)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](#)
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](#)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](#)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](#)
+[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](#)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-ff69b4?style=for-the-badge&logo=render)](https://ai-learning-frontend.onrender.com)
 
-A full-stack MERN application powered by Google Gemini AI that helps students upload study materials, interact with documents, generate summaries, flashcards, quizzes, and track their learning progress.
+A powerful full-stack learning assistant that leverages Google Gemini AI to help students upload study materials, interact with documents, generate summaries, flashcards, quizzes, and track their learning progress.
 
-## 🚀 Live Demo
+---
 
-- **Frontend:** [https://ai-learning-frontend.onrender.com](https://ai-learning-frontend.onrender.com)
-- **Backend API:** [https://ai-learning-backend-g6h7.onrender.com](https://ai-learning-backend-g6h7.onrender.com)
+## ✨ Overview  
+**AI-Powered Learning Assistant** transforms how students interact with study materials by providing:
 
-## ✨ Features
+🤖 **Google Gemini AI** integration for intelligent document analysis  
+📄 **PDF upload & processing** with embedded viewer  
+🧠 **AI-generated summaries, flashcards & quizzes** from your documents  
+💬 **Context-aware chat** with your uploaded materials  
+📊 **Progress tracking** dashboard with analytics  
+🔐 **Secure authentication** with JWT  
 
-### 👤 User Authentication
-- Secure user registration and login
-- JWT-based authentication
-- Password hashing using bcrypt
-- Protected routes with middleware
-- Persistent login sessions
+Built with the MERN stack and TypeScript, this application demonstrates advanced AI integration, file processing, and responsive design principles.
 
-### 📄 PDF Upload & Management
-- Upload study materials in PDF format
-- File size tracking
-- Store file metadata in MongoDB
-- Organized document management
-- Delete and manage uploaded documents
+---
 
-### 📖 Embedded PDF Viewer
-- View PDFs directly inside the application
-- No need to download files
-- Smooth and responsive document rendering
-- In-app reading experience
+## 🔧 Key Features  
 
-### 🤖 AI-Powered Chat (Google Gemini)
-- Context-aware Q&A based on uploaded document
-- Conversational AI experience
-- Intelligent response generation
-- Document-based contextual understanding
+### 📄 PDF Upload & Management  
+- Upload study materials in PDF format  
+- File size tracking and management  
+- Organized document library  
+- Delete and manage uploaded documents  
 
-### 📝 AI Document Summary
-- Generate concise summaries of entire PDFs
-- One-click summary generation
-- Helpful for quick revision
-- Structured and readable output
+### 📖 Embedded PDF Viewer  
+- View PDFs directly in the browser  
+- No downloads required  
+- Smooth, responsive rendering  
 
-### 💡 AI Concept Explainer
-- Ask for detailed explanations of specific topics
-- Deep breakdown of difficult concepts
-- Easy-to-understand AI responses
+### 🤖 AI-Powered Chat (Google Gemini)  
+- Context-aware Q&A based on uploaded documents  
+- Conversational AI experience  
+- Document-specific understanding  
 
-### 🃏 Auto-Generated Flashcards
-- Automatically extract important concepts
-- Generate flashcard sets from documents
-- Flip animation for interactive learning
-- Save and manage flashcards
-- Mark flashcards as favorites
+### 📝 AI Document Summary  
+- Generate concise summaries of entire PDFs  
+- One-click summary generation  
+- Perfect for quick revision  
 
-### 📊 AI Quiz Generator
-- Generate multiple-choice quizzes
-- Custom question count selection
-- Context-aware question generation
-- Intelligent answer options
+### 💡 AI Concept Explainer  
+- Get detailed explanations of specific topics  
+- Deep breakdown of difficult concepts  
+- Easy-to-understand AI responses  
 
-### 📈 Quiz Results & Analytics
-- Score tracking
-- Correct answer review
-- Explanation for each answer
-- Performance insights
+### 🃏 Auto-Generated Flashcards  
+- Automatically extract key concepts  
+- Generate flashcard sets from documents  
+- Flip animation for interactive learning  
+- Save and favorite flashcards  
 
-### 📊 Progress Tracking Dashboard
-- Total documents uploaded
-- Total flashcards created
-- Total quizzes attempted
-- Recent activity feed
-- Learning analytics overview
+### 📊 AI Quiz Generator  
+- Create multiple-choice quizzes from your materials  
+- Custom question count selection  
+- Context-aware question generation  
+- Detailed answer explanations  
 
-### ⭐ Favorites System
-- Mark important flashcards
-- Quick-access review section
-- Personalized revision system
+### 📈 Progress Tracking  
+- Track total documents uploaded  
+- Monitor flashcards created  
+- View quiz attempts and scores  
+- Recent activity feed  
+- Learning analytics overview  
 
-### 📱 Responsive UI
-- Modern UI built with Tailwind CSS
-- Fully responsive (mobile, tablet, desktop)
-- Clean and intuitive design
-- Smooth animations and transitions
+### ⭐ Favorites System  
+- Mark important flashcards  
+- Quick-access review section  
+- Personalized revision system  
 
-## 🛠️ Tech Stack
+---
 
-### Frontend
-- **React.js** - UI library
-- **Tailwind CSS** - Styling
-- **Axios** - HTTP client
-- **React Router DOM** - Routing
-- **React PDF Viewer** - PDF rendering
-- **Vite** - Build tool
-- **TypeScript** - Type safety
-
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM
-- **JWT** - Authentication
-- **Multer** - File upload handling
-- **TypeScript** - Type safety
-
-### AI Integration
-- **Google Gemini API** - AI model
-- Context-based prompt engineering
-- Dynamic content generation
-
-## 🔄 System Flow
-
-### Document Processing Flow
-1. User uploads PDF
-2. Server extracts text from PDF
-3. Text stored in database with metadata
-4. User asks question / generates summary / quiz
-5. Backend sends context to Gemini API
-6. AI response returned to frontend
-
-### Authentication Flow
-1. User registers with email/password
-2. Password hashed with bcrypt
-3. JWT token generated upon successful login
-4. Token stored in localStorage
-5. Protected routes validate token via middleware
-
-## 📁 Project Structure
+## 📁 Project Structure  
 AI-Learning-Application-main/
-├── backend/
+│
+├── backend/ # Node.js + Express + TypeScript
 │ ├── config/ # Configuration files
 │ ├── controller/ # Route controllers
-│ ├── middleware/ # Custom middleware
-│ ├── model/ # Database models
-│ ├── routes/ # API routes
-│ ├── utils/ # Utility functions
-│ ├── server.ts # Entry point
-│ └── package.json
-├── frontend/
+│ ├── middleware/ # Auth & validation middleware
+│ ├── model/ # MongoDB models
+│ ├── routes/ # API endpoints
+│ ├── utils/ # Helper functions
+│ └── server.ts # Entry point
+│
+├── frontend/ # React + TypeScript + Vite
 │ ├── public/ # Static assets
-│ ├── src/ # Source code
-│ │ ├── components/ # React components
-│ │ ├── pages/ # Page components
+│ ├── src/
+│ │ ├── components/ # Reusable UI components
+│ │ ├── pages/ # Page views
 │ │ ├── services/ # API services
-│ │ ├── utils/ # Utility functions
+│ │ ├── utils/ # Helper functions
 │ │ └── App.tsx # Main component
 │ ├── index.html
-│ ├── vite.config.ts
-│ └── package.json
+│ └── vite.config.ts
+│
 ├── .gitignore
 └── README.md
 
 text
 
-## 🚢 Deployment
+---
 
-The application is deployed on **Render**:
+## 🧠 Technologies Used  
 
-- **Backend:** Web Service (Node.js)
-- **Frontend:** Static Site (Vite build)
+| Technology          | Description                                    |
+|---------------------|------------------------------------------------|
+| MongoDB             | NoSQL database for users, documents & progress |
+| Express.js          | Backend framework for RESTful API              |
+| React.js            | Front-end SPA with TypeScript                  |
+| Node.js             | Backend runtime environment                    |
+| TypeScript          | Type safety throughout the stack                |
+| Google Gemini AI    | AI model for content generation & analysis     |
+| JWT                 | Secure user authentication                      |
+| Bcrypt              | Password hashing for secure storage             |
+| Tailwind CSS        | Modern, responsive styling                      |
+| Multer              | File upload handling                            |
+| Axios               | HTTP client for API communication               |
+| React PDF Viewer    | Embedded PDF rendering                          |
+
+---
+
+## 🔄 System Flow  
+
+### Document Processing Flow  
+1. **User uploads PDF** – File is processed and stored  
+2. **Text extraction** – Server extracts text from the PDF  
+3. **Database storage** – Text and metadata saved to MongoDB  
+4. **User interaction** – Ask questions, generate summaries, create quizzes  
+5. **AI processing** – Backend sends context to Google Gemini API  
+6. **Response delivery** – AI-generated content returned to frontend  
+
+### Authentication Flow  
+1. **User registers** – Email and password provided  
+2. **Password hashing** – Secured with bcrypt  
+3. **JWT generation** – Token created upon successful login  
+4. **Client storage** – Token saved in localStorage  
+5. **Route protection** – Middleware validates token for protected routes  
+
+---
+
+## 🎨 Design Highlights  
+
+### Dashboard  
+- Clean, intuitive grid layout  
+- Learning progress overview  
+- Quick access to documents and flashcards  
+- Recent activity feed  
+
+### PDF Viewer  
+- Seamless in-app document viewing  
+- No external downloads needed  
+- Responsive on all devices  
+
+### AI Chat Interface  
+- Conversational design  
+- Document context displayed  
+- Real-time responses  
+
+### Flashcard System  
+- Interactive flip animations  
+- Favorite marking  
+- Organized by document  
+
+### Quiz Interface  
+- Multiple-choice format  
+- Instant feedback  
+- Detailed explanations  
+
+---
+
+## 🌐 Live Demo  
+
+🔗 **[Frontend](https://ai-learning-frontend.onrender.com)** – Explore the application  
+🔗 **[Backend API](https://ai-learning-backend-g6h7.onrender.com)** – RESTful API endpoint  
+
+> **Note:** Render's free tier spins down after 15 minutes of inactivity. The first request may take 30-60 seconds to wake up.
+
+---
+
+## 🧑‍💻 Author  
+
+**Shashwat Khandelwal**  
+🎓 B.Tech Computer Science Student | 💻 MERN Stack Developer | 🤖 AI Enthusiast  
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SHASHWAT13244)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shashwat-khandelwal-a0564532b/)  
+📧 **Email:** shashwatk340@gmail.com  
+
+---
+
+## 📝 License  
+
+MIT License – feel free to use this project for learning and development.
+
+---
+
+**⭐ If you found this project helpful, consider giving it a star on GitHub!**  
+
+[![Star on GitHub](https://img.shields.io/github/stars/SHASHWAT13244/AI-Learning-Application-main?style=social)](https://github.com/SHASHWAT13244/AI-Learning-Application-main)
