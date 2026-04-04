@@ -18,16 +18,15 @@
 }
 
 /* ============================================
-   RUBY DARK THEME - #822659
-   Deep Ruby Background
+   DEEP TEAL-BLUE DARK THEME - #456882
    ============================================ */
 
 .dark body {
-    background: linear-gradient(135deg, #1a0a14 0%, #2d1220 50%, #1a0a14 100%);
+    background-color: #456882;
     background-attachment: fixed;
 }
 
-/* Cards with ruby tint */
+/* Cards */
 .dark .bg-white,
 .dark .bg-white\/80,
 .dark .bg-white\/90,
@@ -36,61 +35,46 @@
 .dark .bg-white\/80.backdrop-blur-xl,
 .dark .bg-white\/80.backdrop-blur-xl.border-2,
 .dark .bg-white\/80.backdrop-blur-xl.border {
-    background: rgba(30, 15, 22, 0.85) !important;
+    background: rgba(30, 40, 50, 0.85) !important;
     backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(130, 38, 89, 0.2) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
 }
 
-/* Borders with ruby */
+/* Borders */
 .dark .border-slate-200,
 .dark .border-slate-200\/60,
 .dark .border-slate-200\/50,
 .dark .border-slate-100,
 .dark .border-neutral-200 {
-    border-color: rgba(130, 38, 89, 0.2) !important;
-}
-
-.dark .border-emerald-200 {
-    border-color: rgba(130, 38, 89, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Text Colors */
 .dark .text-slate-900,
 .dark .text-slate-800,
 .dark .text-neutral-900 {
-    color: #fdf2f8 !important;
+    color: #ffffff !important;
 }
 
 .dark .text-slate-700,
 .dark .text-neutral-700 {
-    color: #fce7f3 !important;
+    color: #e2e8f0 !important;
 }
 
 .dark .text-slate-600,
 .dark .text-neutral-600 {
-    color: #fbcfe8 !important;
+    color: #cbd5e1 !important;
 }
 
 .dark .text-slate-500,
 .dark .text-neutral-500 {
-    color: #f9a8d4 !important;
+    color: #94a3b8 !important;
 }
 
 .dark .text-slate-400,
 .dark .text-neutral-400 {
-    color: #f472b6 !important;
-}
-
-/* Ruby accent text */
-.dark .text-emerald-600,
-.dark .text-emerald-700 {
-    color: #a855a8 !important;
-}
-
-.dark .text-teal-600,
-.dark .text-teal-700 {
-    color: #822659 !important;
+    color: #64748b !important;
 }
 
 /* Background Utilities */
@@ -99,29 +83,15 @@
 .dark .bg-slate-100,
 .dark .bg-slate-100\/50,
 .dark .bg-neutral-50 {
-    background: rgba(45, 18, 32, 0.6) !important;
-    backdrop-filter: blur(8px) !important;
+    background: rgba(25, 35, 45, 0.5) !important;
 }
 
 .dark .bg-slate-200,
 .dark .bg-neutral-100 {
-    background: rgba(55, 25, 40, 0.7) !important;
+    background: rgba(35, 45, 55, 0.6) !important;
 }
 
-/* Ruby backgrounds */
-.dark .bg-emerald-50 {
-    background: rgba(130, 38, 89, 0.15) !important;
-}
-
-.dark .bg-teal-50 {
-    background: rgba(130, 38, 89, 0.1) !important;
-}
-
-.dark .bg-emerald-100 {
-    background: rgba(130, 38, 89, 0.2) !important;
-}
-
-/* Shadows with ruby */
+/* Shadows */
 .dark .shadow-slate-200\/50,
 .dark .shadow-slate-200\/60,
 .dark .shadow-slate-200\/30,
@@ -130,131 +100,119 @@
 .dark .shadow-lg,
 .dark .shadow-md,
 .dark .shadow-sm {
-    box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-.dark .shadow-emerald-500\/25,
-.dark .shadow-emerald-500\/30,
-.dark .shadow-emerald-500\/20 {
-    box-shadow: 0 8px 32px rgba(130, 38, 89, 0.2) !important;
+    box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Input Fields */
 .dark input,
 .dark textarea,
 .dark select {
-    background: rgba(35, 15, 25, 0.8) !important;
-    border: 1px solid rgba(130, 38, 89, 0.3) !important;
-    color: #fdf2f8 !important;
+    background: rgba(20, 30, 40, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
     border-radius: 12px !important;
 }
 
 .dark input::placeholder,
 .dark textarea::placeholder {
-    color: #a855a8 !important;
+    color: #94a3b8 !important;
 }
 
 .dark input:focus,
 .dark textarea:focus,
 .dark select:focus {
-    border-color: #822659 !important;
-    box-shadow: 0 0 0 3px rgba(130, 38, 89, 0.15) !important;
+    border-color: #5a9bc0 !important;
+    box-shadow: 0 0 0 3px rgba(90, 155, 192, 0.15) !important;
     outline: none !important;
 }
 
 /* Modals */
 .dark .fixed.inset-0 .bg-white,
 .dark .fixed.inset-0 .bg-white\/95 {
-    background: rgba(25, 10, 18, 0.96) !important;
+    background: rgba(25, 35, 45, 0.96) !important;
     backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(130, 38, 89, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .dark .fixed.inset-0 .bg-slate-900\/50 {
-    background: rgba(0, 0, 0, 0.7) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Scrollbar - Ruby */
+/* Scrollbar */
 .dark ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
 
 .dark ::-webkit-scrollbar-track {
-    background: rgba(45, 18, 32, 0.4);
+    background: rgba(25, 35, 45, 0.4);
     border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-    background: #822659;
+    background: #5a9bc0;
     border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: #a855a8;
+    background: #6aabc8;
 }
 
 /* Hover States */
 .dark .group:hover .bg-white\/80 {
-    background: rgba(55, 25, 40, 0.9) !important;
+    background: rgba(40, 50, 60, 0.9) !important;
     transform: translateY(-2px);
     transition: all 0.3s ease;
 }
 
 .dark .hover\:bg-slate-100:hover {
-    background: rgba(55, 25, 40, 0.8) !important;
+    background: rgba(35, 45, 55, 0.8) !important;
 }
 
 /* Buttons */
 .dark button:not(.bg-linear-to-r):not(.bg-linear-to-br) {
-    background: rgba(55, 25, 40, 0.7) !important;
-    border: 1px solid rgba(130, 38, 89, 0.25) !important;
-    color: #fce7f3 !important;
+    background: rgba(35, 45, 55, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e2e8f0 !important;
 }
 
 .dark button:not(.bg-linear-to-r):not(.bg-linear-to-br):hover {
-    background: rgba(75, 35, 55, 0.9) !important;
-    border-color: rgba(130, 38, 89, 0.4) !important;
+    background: rgba(45, 55, 65, 0.9) !important;
 }
 
 /* Toast Notifications */
 .dark .goober {
-    background: rgba(25, 10, 18, 0.96) !important;
-    border: 1px solid rgba(130, 38, 89, 0.25) !important;
+    background: rgba(25, 35, 45, 0.96) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 16px !important;
-    color: #fdf2f8 !important;
+    color: #ffffff !important;
 }
 
-/* Progress Bars - Ruby */
+/* Progress Bars */
 .dark .bg-slate-100 {
-    background: rgba(55, 25, 40, 0.6) !important;
-}
-
-.dark .bg-linear-to-r.from-emerald-500.to-teal-500 {
-    background: linear-gradient(90deg, #822659, #a855a8) !important;
-    box-shadow: 0 0 12px rgba(130, 38, 89, 0.4);
+    background: rgba(35, 45, 55, 0.6) !important;
 }
 
 /* Chat Interface */
 .dark .bg-linear-to-br.from-slate-50\/50 {
-    background: linear-gradient(135deg, rgba(45, 18, 32, 0.6), rgba(30, 15, 22, 0.8)) !important;
+    background: linear-gradient(135deg, rgba(25, 35, 45, 0.6), rgba(30, 40, 50, 0.8)) !important;
 }
 
 /* Sidebar */
 .dark .bg-white\/90 {
-    background: rgba(20, 8, 14, 0.94) !important;
+    background: rgba(20, 30, 40, 0.94) !important;
     backdrop-filter: blur(20px) !important;
-    border-right: 1px solid rgba(130, 38, 89, 0.15) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Header */
 .dark .bg-white\/80 {
-    background: rgba(20, 8, 14, 0.88) !important;
+    background: rgba(20, 30, 40, 0.88) !important;
     backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(130, 38, 89, 0.15) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Gradients - Ruby */
+/* Gradients - Keep emerald/teal but darker */
 .dark .bg-linear-to-br,
 .dark .bg-linear-to-r {
     background-size: 200% 200% !important;
@@ -267,72 +225,61 @@
     100% { background-position: 0% 50%; }
 }
 
-.dark .from-emerald-500,
-.dark .to-teal-500 {
-    --tw-gradient-from: #822659 !important;
-    --tw-gradient-to: #a855a8 !important;
-}
-
 /* Flashcard */
 .dark .bg-white\/80.backdrop-blur-xl.border-2.border-slate-200 {
-    background: rgba(30, 15, 22, 0.88) !important;
-    border: 1px solid rgba(130, 38, 89, 0.2) !important;
+    background: rgba(30, 40, 50, 0.88) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Quiz options */
 .dark .bg-slate-50\/50 {
-    background: rgba(45, 18, 32, 0.6) !important;
+    background: rgba(25, 35, 45, 0.6) !important;
 }
 
 .dark .hover\:bg-white:hover {
-    background: rgba(55, 25, 40, 0.9) !important;
+    background: rgba(40, 50, 60, 0.9) !important;
 }
 
 /* Quiz results */
 .dark .bg-emerald-50 {
-    background: rgba(130, 38, 89, 0.1) !important;
-    border-left: 3px solid #822659 !important;
+    background: rgba(90, 155, 192, 0.1) !important;
+    border-left: 3px solid #5a9bc0 !important;
 }
 
 .dark .bg-rose-50 {
-    background: rgba(168, 85, 168, 0.1) !important;
-    border-left: 3px solid #a855a8 !important;
+    background: rgba(244, 63, 94, 0.1) !important;
+    border-left: 3px solid #f43f5e !important;
 }
 
 /* Dashboard cards */
 .dark .bg-white\/80.backdrop-blur-xl.border {
-    background: rgba(30, 15, 22, 0.8) !important;
+    background: rgba(30, 40, 50, 0.8) !important;
     transition: all 0.3s ease;
 }
 
 .dark .bg-white\/80.backdrop-blur-xl.border:hover {
     transform: translateY(-4px);
-    border-color: rgba(130, 38, 89, 0.4);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Profile page */
 .dark .bg-white.border-neutral-200 {
-    background: rgba(30, 15, 22, 0.8) !important;
+    background: rgba(30, 40, 50, 0.8) !important;
 }
 
 /* AI Actions cards */
 .dark .bg-white\/80.backdrop-blur-xl.border-2 {
-    background: rgba(30, 15, 22, 0.8) !important;
+    background: rgba(30, 40, 50, 0.8) !important;
     transition: all 0.3s ease;
 }
 
 .dark .bg-white\/80.backdrop-blur-xl.border-2:hover {
     transform: translateY(-4px);
-    border-color: rgba(130, 38, 89, 0.4);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Loading spinner */
 .dark .react-spinners-beat-loader div {
-    background-color: #822659 !important;
-}
-
-/* Active navigation item */
-.dark .bg-linear-to-r.from-emerald-500.to-teal-500 {
-    background: linear-gradient(135deg, #822659, #a855a8) !important;
+    background-color: #5a9bc0 !important;
 }
