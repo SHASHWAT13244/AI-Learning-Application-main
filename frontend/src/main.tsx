@@ -8,7 +8,18 @@ import { ThemeProvider } from './context/ThemeContext.tsx';
 createRoot(document.getElementById('root')!).render(
     <ThemeProvider>
         <AuthProvider>
-            <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
+            <Toaster 
+                position="top-right" 
+                toastOptions={{ 
+                    duration: 3000,
+                    style: {
+                        background: 'var(--toast-bg, #fff)',
+                        color: 'var(--toast-color, #000)',
+                        borderRadius: '16px',
+                        padding: '12px 16px',
+                    }
+                }} 
+            />
             <App />
         </AuthProvider>
     </ThemeProvider>
