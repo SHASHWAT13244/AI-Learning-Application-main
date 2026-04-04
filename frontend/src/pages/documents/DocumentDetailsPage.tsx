@@ -15,8 +15,7 @@ import { ErrorFallbackComponent } from '../../components/common/ErrorFallbackCom
 
 const DocumentDetailsPage = () => {
     const { id } = useParams();
-    const [getDocdetails, setDocDetails] =
-        useState<DocumentPayloadTypes | null>(null);
+    const [getDocdetails, setDocDetails] = useState<DocumentPayloadTypes | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [activeTab, SetActiveTab] = useState<string>('Content');
 
@@ -39,7 +38,6 @@ const DocumentDetailsPage = () => {
         fetchDocs();
     }, [id]);
 
-    //get file url
     const getFileURL = () => {
         if (!getDocdetails?.filePath) return null;
 
@@ -53,38 +51,37 @@ const DocumentDetailsPage = () => {
         return `${baseUrl}${filePath.startsWith('/') ? '' : '/'}${filePath}`;
     };
 
-    //render content
     const renderContent = () => {
         if (loading) {
             return <Spinner />;
         }
         if (!getDocdetails || !getDocdetails.filePath) {
-            return <div className="text-center p-8">PDF not available</div>;
+            return <div className="text-center p-8 text-slate-600 dark:text-slate-400">PDF not available</div>;
         }
 
         const getURL = getFileURL();
         if (getURL) {
             return (
-                <div className="bg-white border border-gray-300 rounded-lg overflow-hidden shadow-md">
-                    <div className="flex items-center justify-between p-4 bg-gray-50 border-b border-gray-300">
-                        <span className="text-sm font-medium text-gray-700">
+                <div className="bg-white dark:bg-slate-800 border border-gray-300 dark:border-white/10 rounded-lg overflow-hidden shadow-md">
+                    <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-slate-900/50 border-b border-gray-300 dark:border-white/10">
+                        <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
                             Document Viewer
                         </span>
                         <a
                             href={getURL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                            className="inline-flex items-center gap-1.5 text-sm text-emerald-600 dark:text-teal-400 hover:text-emerald-700 dark:hover:text-teal-300 font-medium transition-colors"
                         >
                             <ExternalLink size={16} />
                             Open in new tab
                         </a>
                     </div>
-                    <div className="bg-gray-100 p-1">
+                    <div className="bg-gray-100 dark:bg-slate-900/30 p-1">
                         <iframe
                             title="PDF Viewer"
                             src={getURL}
-                            className="w-full h-[70vh] bg-white rounded border border-gray-300"
+                            className="w-full h-[70vh] bg-white dark:bg-slate-800 rounded border border-gray-300 dark:border-white/10"
                         ></iframe>
                     </div>
                 </div>
@@ -92,22 +89,19 @@ const DocumentDetailsPage = () => {
         }
     };
 
-    //render chat
     const renderChat = () => {
         return <ChatInterface />;
     };
 
-    //render AI actions
     const renderAIActions = () => {
         return <AI_Actions />;
     };
 
-    //render flashCard
     const renderFlashCardSets = () => {
         if (!id) return null;
         return <FlashCardManager documentId={id} />;
     };
-    //render quizzes
+    
     const renderQuizzes = () => {
         if (!id) return null;
         return <QuizManager documentId={id} />;
@@ -117,26 +111,24 @@ const DocumentDetailsPage = () => {
         { name: 'Content', label: 'Content', content: renderContent() },
         { name: 'Chat', label: 'Chat', content: renderChat() },
         { name: 'AI Actions', label: 'AI Actions', content: renderAIActions() },
-        {
-            name: 'FlashCards',
-            label: 'FlashCards',
-            content: renderFlashCardSets(),
-        },
+        { name: 'FlashCards', label: 'FlashCards', content: renderFlashCardSets() },
         { name: 'Quizzes', label: 'Quizzes', content: renderQuizzes() },
     ];
+    
     if (loading) {
         return <Spinner />;
     }
 
     if (!getDocdetails) {
-        return <div className="text-center p-8">Document Not found.</div>;
+        return <div className="text-center p-8 text-slate-600 dark:text-slate-400">Document Not found.</div>;
     }
+    
     return (
         <div>
             <div className="mb-4">
                 <Link
                     to="/documents"
-                    className="inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-800 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm text-neutral-600 dark:text-slate-400 hover:text-neutral-800 dark:hover:text-slate-200 transition-colors"
                 >
                     <ArrowLeft size={16} />
                     Back
