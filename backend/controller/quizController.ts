@@ -58,7 +58,7 @@ export const getQuizById = async (
   }
 };
 
-//@desc   Gandle submit
+//@desc   Handle submit
 //@route  POST /api/quiz/:id/submit
 //@access private
 export const submitQuiz = async (
@@ -85,7 +85,7 @@ export const submitQuiz = async (
     if (!quiz) {
       return res.status(404).json({
         success: false,
-        error: 'quiz not found',
+        error: 'Quiz not found',
         statusCode: 404,
       });
     }
@@ -93,36 +93,49 @@ export const submitQuiz = async (
     if (quiz.completedAt) {
       return res.status(400).json({
         success: false,
-        error: 'Quiz already comppleted',
+        error: 'Quiz already completed',
         statusCode: 400,
       });
     }
 
-    //process answers
+    // Process answers
     let correctCount = 0;
     const userAnswers: QUIZ_TYPES['userAnswers'] = [];
 
-    answers.forEach((answer) => {
+    for (const answer of answers) {
       const { questionIndex, selectedAnswer } = answer;
 
       if (questionIndex < quiz.questions.length) {
         const question = quiz.questions[questionIndex];
-        const isCorrect = selectedAnswer === question.correctAnswer;
+        
+        // Fix: Compare the actual answer text
+        let isCorrect = false;
+        
+        // If correctAnswer is in format "O1", "O2", etc. (from Gemini generation)
+        if (question.correctAnswer && question.correctAnswer.match(/^O[1-4]$/i)) {
+          const correctOptionIndex = parseInt(question.correctAnswer.substring(1)) - 1;
+          const correctOptionText = question.options[correctOptionIndex];
+          isCorrect = selectedAnswer === correctOptionText;
+        } else {
+          // Direct text comparison
+          isCorrect = selectedAnswer === question.correctAnswer;
+        }
 
         if (isCorrect) correctCount++;
 
         userAnswers.push({
           questionIndex,
-          selectedAnswer,
+          selectedAnswer: selectedAnswer || 'No answer selected',
           isCorrect,
           answerAt: new Date(),
         });
       }
-    });
-    //calculate score
+    }
+
+    // Calculate score
     const score = Math.round((correctCount / quiz.toltalQuestions) * 100);
 
-    //update quiz
+    // Update quiz
     quiz.userAnswers = userAnswers;
     quiz.score = score;
     quiz.completedAt = new Date();
@@ -146,7 +159,7 @@ export const submitQuiz = async (
   }
 };
 
-//@desc   Submit quiz answer
+//@desc   Get quiz results
 //@route  GET /api/quiz/:id/results
 //@access private
 export const getQuizResults = async (
@@ -176,7 +189,7 @@ export const getQuizResults = async (
       });
     }
 
-    //Build detailed results
+    // Build detailed results
     const detailedResults = quiz.questions.map((question, index) => {
       const userAnswer = quiz.userAnswers.find(
         (q) => q.questionIndex === index
