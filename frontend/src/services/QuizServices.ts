@@ -9,6 +9,17 @@ import { API_PATHS } from '../utils/Apipath';
 import axiosInstance from '../utils/axiosInstance';
 import { handleAPIErrLogic } from './ReusableErrorServices';
 
+const getAllQuizzes = async (): Promise<getQuizzesResponseTypesForDocs> => {
+    try {
+        const response = await axiosInstance.get<getQuizzesResponseTypesForDocs>(
+            API_PATHS.QUIZZES.GET_ALL_QUIZZES
+        );
+        return response.data;
+    } catch (error) {
+        throw handleAPIErrLogic(error);
+    }
+};
+
 const getQuizzessForDocs = async (
     documentId: string
 ): Promise<getQuizzesResponseTypesForDocs> => {
@@ -22,6 +33,7 @@ const getQuizzessForDocs = async (
         throw handleAPIErrLogic(error);
     }
 };
+
 const getQuizzesById = async (
     quizId: string
 ): Promise<getQuizzesResponseTypes> => {
@@ -37,7 +49,6 @@ const getQuizzesById = async (
 
 const SubmitQuiz = async (
     quizId: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     answers: any
 ): Promise<SubmitQuizApiTypes> => {
     try {
@@ -79,6 +90,7 @@ const deleteQuiz = async (
 };
 
 const QuizServices = {
+    getAllQuizzes,
     getQuizzessForDocs,
     getQuizzesById,
     SubmitQuiz,
