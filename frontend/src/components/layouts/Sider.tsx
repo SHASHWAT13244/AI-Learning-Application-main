@@ -8,6 +8,7 @@ import {
     User,
     X,
     HelpCircle,
+    Sparkles,
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
@@ -28,6 +29,7 @@ export const Sider = ({
         { to: '/documents', text: 'Documents', icon: FileText },
         { to: '/flashcards', text: 'Flashcards', icon: BookOpen },
         { to: '/quizzes', text: 'Quizzes', icon: HelpCircle },
+        { to: '/ai-actions', text: 'AI Actions', icon: Sparkles },
         { to: '/profile', text: 'Profile', icon: User },
     ];
     
