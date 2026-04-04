@@ -55,7 +55,6 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
 
     useEffect(() => {
         fetchFlashCardSets();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [documentId]);
 
     const handleGenerateFlashCards = async () => {
@@ -95,7 +94,6 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
 
     const handleReview = async (index: number) => {
         const currentCard = selectedSet?.cards[currInd];
-
         if (!currentCard) return;
 
         try {
@@ -178,19 +176,17 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
         if (!currCard) return;
         return (
             <div className="space-y-8">
-                {/* Back button */}
                 <button
                     onClick={() => setSelectedSet(null)}
-                    className="group inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-emerald-500 transition-colors duration-200"
+                    className="group inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-emerald-500 dark:hover:text-teal-400 transition-colors duration-200"
                 >
                     <ArrowLeft
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                        className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200"
                         strokeWidth={2}
                     />
                     Back to Flashcard sets
                 </button>
 
-                {/* Flashcard display */}
                 <div className="flex flex-col items-center space-y-8">
                     <div className="w-full max-w-2xl">
                         <FlashCard
@@ -199,12 +195,11 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
                         />
                     </div>
 
-                    {/* Navigation controls  */}
                     <div className="flex items-center gap-6">
                         <button
                             onClick={handlePrev}
                             disabled={selectedSet.cards.length <= 1}
-                            className="group flex items-center gap-2 px-5 h-11 bg-slate-100 hover:bg-slate-300 text-slate-700 font-medium text-sm rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-slate-100"
+                            className="group flex items-center gap-2 px-5 h-11 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-medium text-sm rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                             <ChevronLeft
                                 className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform duration-100"
@@ -213,10 +208,10 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
                             Previous
                         </button>
 
-                        <div className="px-4 py-2 bg-slate-50 rounded-lg border border-slate-200">
-                            <span className="text-sm font-semibold text-slate-700">
+                        <div className="px-4 py-2 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-white/10">
+                            <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                                 {currInd + 1}{' '}
-                                <span className="text-slate-400 font-normal">
+                                <span className="text-slate-400 dark:text-slate-500 font-normal">
                                     /
                                 </span>{' '}
                                 {selectedSet.cards.length}
@@ -225,7 +220,7 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
                         <button
                             onClick={handleNext}
                             disabled={selectedSet.cards.length <= 1}
-                            className="group flex items-center  gap-2 px-5 h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-sm rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-slate-100"
+                            className="group flex items-center gap-2 px-5 h-11 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-medium text-sm rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                             Next
                             <ChevronRight
@@ -250,23 +245,23 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
         if (flashCardSets?.length === 0) {
             return (
                 <div className="flex flex-col items-center justify-center py-16 px-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-emerald-100 to-teal-100 mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-emerald-100 to-teal-100 dark:from-teal-900/50 dark:to-blue-900/50 mb-6">
                         <Brain
-                            className="w-8 h-8 text-emerald-600"
+                            className="w-8 h-8 text-emerald-600 dark:text-teal-400"
                             strokeWidth={2}
                         />
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
                         No flashcard yet
                     </h3>
-                    <p className="text-sm text-slate-500 mb-8 text-center max-w-sm">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-8 text-center max-w-sm">
                         Generate flashcards from your document to start learning
-                        and reinforce you knowledge.
+                        and reinforce your knowledge.
                     </p>
                     <button
                         onClick={handleGenerateFlashCards}
                         disabled={generating}
-                        className="group inline-flex items-center gap-2 px-6 h-12 bg-linear-to-br from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/30 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
+                        className="group inline-flex items-center gap-2 px-6 h-12 bg-linear-to-br from-emerald-500 to-teal-500 dark:from-teal-600 dark:to-blue-700 hover:from-emerald-600 hover:to-teal-600 dark:hover:from-teal-700 dark:hover:to-blue-800 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/30 dark:shadow-teal-500/30 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
                     >
                         {generating ? (
                             <>
@@ -291,88 +286,73 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
                         <ErrorFallbackComponent {...props} />
                     )}
                 >
-                    {/* Header  */}
-                    <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-slate-900">
-                            Your Flashcard Sets
-                        </h3>
-                        <p className="text-sm text-slate-500 mt-1">
-                            {flashCardSets.length}
-                            {flashCardSets.length === 1 ? 'set' : 'sets'}{' '}
-                            available
-                        </p>
+                    <div className="flex items-center justify-between flex-wrap gap-4">
+                        <div>
+                            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                                Your Flashcard Sets
+                            </h3>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                                {flashCardSets.length}
+                                {flashCardSets.length === 1 ? ' set' : ' sets'}{' '}
+                                available
+                            </p>
+                        </div>
                         <button
                             onClick={handleGenerateFlashCards}
                             disabled={generating}
-                            className="group inline-flex items-center gap-2 px-5 h-11 bg-linear-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
+                            className="group inline-flex items-center gap-2 px-5 h-11 bg-linear-to-r from-emerald-500 to-teal-500 dark:from-teal-600 dark:to-blue-700 hover:from-emerald-600 hover:to-teal-600 dark:hover:from-teal-700 dark:hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25 dark:shadow-teal-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
                         >
                             {generating ? (
                                 <>
-                                    {' '}
                                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                     Generating...
                                 </>
                             ) : (
                                 <>
-                                    <Plus
-                                        className="w-4 h-4"
-                                        strokeWidth={2.5}
-                                    />
+                                    <Plus className="w-4 h-4" strokeWidth={2.5} />
                                     Generate New Set
                                 </>
                             )}
                         </button>
                     </div>
 
-                    {/* FlashCards set grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {flashCardSets.map(set => (
                             <div
                                 key={set._id}
                                 onClick={() => handleSelectSet(set)}
-                                className="group relative bg-white/80 backdrop-blur-xl border-2 border-slate-200 hover:border-emerald-400 rounded-2xl p-6 cursor-pointer transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500"
+                                className="group relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-2 border-slate-200 dark:border-white/10 hover:border-emerald-400 dark:hover:border-teal-500 rounded-2xl p-6 cursor-pointer transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500 dark:hover:shadow-teal-500"
                             >
-                                {/* Delete Button  */}
                                 <button
-                                    onClick={(
-                                        e: MouseEvent<HTMLButtonElement>
-                                    ) => handleDelete(e, set)}
-                                    className=" absolute top-4 right-4 text-slate-400 hover:text-red-400 hover:bg-rose-100 transition-all rounded-lg duration-200 opacity-0 group-hover:opacity-100"
+                                    onClick={(e: MouseEvent<HTMLButtonElement>) => handleDelete(e, set)}
+                                    className="absolute top-4 right-4 text-slate-400 dark:text-slate-500 hover:text-red-400 dark:hover:text-red-400 hover:bg-rose-100 dark:hover:bg-red-900/20 transition-all rounded-lg duration-200 opacity-0 group-hover:opacity-100 p-2"
                                 >
-                                    <Trash2
-                                        className="w-4 h-4"
-                                        strokeWidth={2}
-                                    />
+                                    <Trash2 className="w-4 h-4" strokeWidth={2} />
                                 </button>
 
-                                {/* Set Content */}
                                 <div className="space-y-4">
-                                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-br from-emerald-100 to-teal-200">
+                                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-br from-emerald-100 to-teal-100 dark:from-teal-900/50 dark:to-blue-900/50">
                                         <Brain
-                                            className="w-6 h-6 text-emerald-600"
+                                            className="w-6 h-6 text-emerald-600 dark:text-teal-400"
                                             strokeWidth={2}
                                         />
                                     </div>
 
                                     <div>
-                                        <h4 className="text-base font-semibold text-slate-900 mb-1">
+                                        <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-1">
                                             FlashCard Set
                                         </h4>
-                                        <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
+                                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                                             Created{' '}
-                                            {moment(set.createdAt).format(
-                                                'MMM D,YYYY'
-                                            )}
+                                            {moment(set.createdAt).format('MMM D, YYYY')}
                                         </p>
                                     </div>
 
-                                    <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
-                                        <div className="px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-lg">
-                                            <span className="text-sm font-semibold text-emerald-700">
+                                    <div className="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-white/10">
+                                        <div className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg">
+                                            <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">
                                                 {set.cards.length}{' '}
-                                                {set.cards.length === 1
-                                                    ? 'set'
-                                                    : 'sets'}
+                                                {set.cards.length === 1 ? 'card' : 'cards'}
                                             </span>
                                         </div>
                                     </div>
@@ -387,29 +367,26 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
 
     return (
         <>
-            <div className="bg-white/80 backdrop-blur-xl border border-slate-200/60 rounded-3xl shadow-xl shadow-slate-200/50 p-8">
+            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-slate-200/60 dark:border-white/10 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-black/30 p-8">
                 {selectedSet ? renderFlashCardViewer() : renderSetList()}
             </div>
 
             <Modal
                 isOpen={isDeleteModalOpen}
-                onClose={() => {
-                    setIsDeleteModalOpen(false);
-                }}
+                onClose={() => setIsDeleteModalOpen(false)}
                 title="Delete Flashcard set?"
             >
                 <div className="space-y-6">
-                    <p className="text-sm text-slate-600">
-                        Are you sure you want to delete this flashcard set?This
-                        action cannot be undone and all cards will be
-                        permanantly removed.
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                        Are you sure you want to delete this flashcard set? This
+                        action cannot be undone and all cards will be permanently removed.
                     </p>
                     <div className="flex items-center justify-end gap-3 pt-2">
                         <button
                             type="button"
                             onClick={() => setIsDeleteModalOpen(false)}
                             disabled={isDeleting}
-                            className="px-5 h-12 bg-slate-100 hover:bg-slate-200 text-slate-900 font-medium text-sm rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="px-5 h-12 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-900 dark:text-slate-100 font-medium text-sm rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             Cancel
                         </button>
@@ -417,7 +394,7 @@ export const FlashCardManager = ({ documentId }: { documentId: string }) => {
                             type="submit"
                             onClick={handleDeleteConfirmPopup}
                             disabled={isDeleting}
-                            className="px-5 h-12 bg-linear-to-r from-rose-500 to-red-500 hover:from-rose-600 hover:to-red-600 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-lg shadow-rose-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-no-drop disabled:active:scale-100"
+                            className="px-5 h-12 bg-linear-to-r from-rose-500 to-red-500 hover:from-rose-600 hover:to-red-600 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-lg shadow-rose-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
                         >
                             {isDeleting ? (
                                 <span className="flex items-center gap-2">
