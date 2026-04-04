@@ -10,7 +10,7 @@ import { useAuth } from './context/AuthContext';
 
 const App = () => {
     const { isAuthenticated } = useAuth();
-    
+
     const LoginPage = lazy(() => import('./pages/auth/Login'));
     const RegisterPage = lazy(() => import('./pages/auth/Register'));
     const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
