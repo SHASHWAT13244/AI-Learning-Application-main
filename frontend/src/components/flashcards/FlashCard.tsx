@@ -25,22 +25,20 @@ export const FlashCard = ({
                     className="relative w-full h-full transition-transform duration-500 transform-cpu cursor-pointer"
                     style={{
                         transformStyle: 'preserve-3d',
-                        transform: isFlipped
-                            ? 'rotateY(180deg'
-                            : 'rotateY(0deg)',
+                        transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
                     }}
                     onClick={handleFlipped}
                 >
                     {/* Front card */}
                     <div
-                        className=" absolute inset-0 w-full h-full bg-white/80 backdrop-blur-xl border-2 border-slate-200/60 rounded-2xl shadow-xl shadow-slate-200/50 p-8 flex-col justify-between"
+                        className="absolute inset-0 w-full h-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-2 border-slate-200/60 dark:border-white/10 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-black/30 p-8 flex flex-col justify-between"
                         style={{
                             backfaceVisibility: 'hidden',
                             WebkitBackfaceVisibility: 'hidden',
                         }}
                     >
                         <div className="flex items-start justify-between">
-                            <div className="bg-slate-100 text-[10px] text-slate-600 rounded px-4 py-1 uppercase">
+                            <div className="bg-slate-100 dark:bg-slate-700 text-[10px] text-slate-600 dark:text-slate-300 rounded px-4 py-1 uppercase">
                                 {flashcard.difficulty}
                             </div>
                             <button
@@ -51,7 +49,7 @@ export const FlashCard = ({
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
                                     flashcard.isStarred
                                         ? 'bg-linear-to-br from-amber-400 to-yellow-500 text-white shadow-lg shadow-amber-500/25'
-                                        : 'bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-amber-500 '
+                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-amber-500'
                                 }`}
                             >
                                 <Star
@@ -66,33 +64,27 @@ export const FlashCard = ({
                             </button>
                         </div>
 
-                        {/* Question content */}
                         <div className="flex-1 flex items-center justify-center px-4 py-6">
-                            <p className="text-lg font-semibold text-slate-900 text-center leading-relaxed">
+                            <p className="text-lg font-semibold text-slate-900 dark:text-slate-100 text-center leading-relaxed">
                                 {flashcard.question}
                             </p>
                         </div>
 
-                        {/* Indicator */}
-                        <div className="flex items-center justify-center gap-2 text-xs text-slate-400 font-medium">
-                            <RotateCcw
-                                className="w-3.5 h-3.5"
-                                strokeWidth={2}
-                            />
+                        <div className="flex items-center justify-center gap-2 text-xs text-slate-400 dark:text-slate-500 font-medium">
+                            <RotateCcw className="w-3.5 h-3.5" strokeWidth={2} />
                             <span>Click to reveal answer</span>
                         </div>
                     </div>
 
-                    {/* Back card  */}
+                    {/* Back card */}
                     <div
-                        className=" absolute inset-0 w-full h-full bg-linear-to-br from-emerald-500 to-teal-500 border-2 border-emerald-400/60 rounded-2xl shadow-xl shadow-emerald-500/30 p-8 flex flex-col justify-between"
+                        className="absolute inset-0 w-full h-full bg-linear-to-br from-emerald-500 to-teal-500 dark:from-teal-600 dark:to-blue-700 border-2 border-emerald-400/60 dark:border-teal-400/60 rounded-2xl shadow-xl shadow-emerald-500/30 dark:shadow-teal-500/30 p-8 flex flex-col justify-between"
                         style={{
                             backfaceVisibility: 'hidden',
                             WebkitBackfaceVisibility: 'hidden',
-                            transform: 'rotateY(180deg',
+                            transform: 'rotateY(180deg)',
                         }}
                     >
-                        {/* Star Button  */}
                         <div className="flex justify-end">
                             <button
                                 onClick={(e: MouseEvent<HTMLButtonElement>) => {
@@ -100,12 +92,11 @@ export const FlashCard = ({
                                     onToggleStar(flashcard._id);
                                 }}
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 
-            ${
-                flashcard.isStarred
-                    ? 'bg-white/30 backdrop-blur-sm text-white border border-white/50'
-                    : 'bg-white/20 backdrop-blur-sm text-white/70 border border-white/50 hover:text-white'
-            }
-            `}
+                                    ${
+                                        flashcard.isStarred
+                                            ? 'bg-white/30 backdrop-blur-sm text-white border border-white/50'
+                                            : 'bg-white/20 backdrop-blur-sm text-white/70 border border-white/50 hover:text-white'
+                                    }`}
                             >
                                 <Star
                                     className="w-4 h-4"
@@ -119,19 +110,14 @@ export const FlashCard = ({
                             </button>
                         </div>
 
-                        {/* Answer Content  */}
                         <div className="flex-1 flex items-center justify-center px-4 py-6">
                             <p className="text-lg font-semibold text-white text-center leading-relaxed">
                                 {flashcard.answer}
                             </p>
                         </div>
 
-                        {/* Indicator */}
                         <div className="flex items-center justify-center gap-2 text-xs text-white/70 font-medium">
-                            <RotateCcw
-                                className="w-3.5 h-3.5"
-                                strokeWidth={2}
-                            />
+                            <RotateCcw className="w-3.5 h-3.5" strokeWidth={2} />
                             <span>Click to see question</span>
                         </div>
                     </div>
