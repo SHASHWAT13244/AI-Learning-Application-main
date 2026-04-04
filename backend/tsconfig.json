@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "types": ["node"],
+        "types": ["node", "express"],
         "target": "ES2022",
         "lib": ["ES2022"],
         "module": "commonjs",
@@ -9,10 +9,12 @@
         "outDir": "./dist",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "strict": false,
+        "strict": true,
         "skipLibCheck": true,
-        "noImplicitAny": false
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "typeRoots": ["./node_modules/@types", "./src/types"]
     },
-    "include": ["**/*.ts"],
-    "exclude": ["node_modules", "dist"]
+    "include": ["**/*.ts", "src/types/**/*.d.ts"],
+    "exclude": ["node_modules", "dist", "coverage"]
 }
