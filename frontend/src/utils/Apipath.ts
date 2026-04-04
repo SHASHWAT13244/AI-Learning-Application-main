@@ -32,6 +32,7 @@ export const API_PATHS = {
         DELETE_FLASHCARD: (id: string) => `/api/flashcard/${id}`,
     },
     QUIZZES: {
+        GET_ALL_QUIZZES: `/api/quiz`,
         GET_ALL_QUIZZES_FOR_DOC: (documentId: string) =>
             `/api/quiz/document/${documentId}`,
         GET_ALL_QUIZZES_BY_ID: (quizId: string) => `/api/quiz/${quizId}`,
