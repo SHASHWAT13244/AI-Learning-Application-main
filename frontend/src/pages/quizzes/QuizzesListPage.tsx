@@ -22,17 +22,19 @@ const QuizzesListPage = () => {
     const fetchAllQuizzes = async () => {
         setLoading(true);
         try {
-            // You'll need to add this endpoint to your backend
-            // For now, we'll show a message
-            toast.error('Quizzes list endpoint coming soon');
-            setQuizzes([]);
-        } catch (error) {
-            console.error(error);
-            if (error instanceof Error) {
-                toast.error(error?.message);
+            // Call the actual API endpoint
+            const response = await QuizServices.getAllQuizzes();
+            console.log('Fetched quizzes:', response);
+            
+            if (response.success && response.data) {
+                setQuizzes(response.data);
             } else {
-                toast.error('Failed to fetch quizzes');
+                setQuizzes([]);
             }
+        } catch (error: any) {
+            console.error('Error fetching quizzes:', error);
+            toast.error(error?.message || 'Failed to fetch quizzes');
+            setQuizzes([]);
         } finally {
             setLoading(false);
         }
@@ -43,13 +45,9 @@ const QuizzesListPage = () => {
             await QuizServices.deleteQuiz(quiz._id);
             toast.success('Quiz deleted successfully');
             fetchAllQuizzes();
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            if (error instanceof Error) {
-                toast.error(error?.message);
-            } else {
-                toast.error('Failed to delete quiz');
-            }
+            toast.error(error?.message || 'Failed to delete quiz');
         }
     };
 
@@ -95,6 +93,7 @@ const QuizzesListPage = () => {
             <ErrorBoundary
                 fallbackRender={props => <ErrorFallbackComponent {...props} />}
             >
+                <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px, transparent_1px)] bg-size-[16px_16px] opacity-30 pointer-events-none" />
                 <div className="relative max-w-7xl mx-auto">
                     <Pageheader 
                         title="All Quizzes" 
