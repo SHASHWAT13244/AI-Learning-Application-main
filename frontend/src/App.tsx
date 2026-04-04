@@ -10,7 +10,7 @@ import { useAuth } from './context/AuthContext';
 
 const App = () => {
     const { isAuthenticated } = useAuth();
-    // const loading = false;
+    
     const LoginPage = lazy(() => import('./pages/auth/Login'));
     const RegisterPage = lazy(() => import('./pages/auth/Register'));
     const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -29,16 +29,12 @@ const App = () => {
     const FlashCardDetailsPage = lazy(
         () => import('./pages/flashcards/FlashCardPage')
     );
+    const QuizzesListPage = lazy(
+        () => import('./pages/quizzes/QuizzesListPage')
+    );
     const QuizTakePage = lazy(() => import('./pages/quizzes/QuizTakePage'));
     const QuizResultPage = lazy(() => import('./pages/quizzes/QuizResultPage'));
     const ProfilePage = lazy(() => import('./pages/profile/ProfilePage'));
-    // // if (loading) {
-    // //     return (
-    //         <div className='flex items-center justify-center h-screen'>
-    //             <p className=''>Loading...</p>
-    //         </div>
-    // //     );
-    // // }
 
     return (
         <Router>
@@ -81,6 +77,10 @@ const App = () => {
                         <Route
                             path="/documents/:id/flashcards"
                             element={<FlashCardDetailsPage />}
+                        />
+                        <Route
+                            path="/quizzes"
+                            element={<QuizzesListPage />}
                         />
                         <Route
                             path="/quizzes/:quizId"
