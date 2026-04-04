@@ -2,6 +2,31 @@ import { Request, Response, NextFunction } from 'express';
 import Quiz from '../model/quiz';
 import { QUIZ_TYPES } from '../types';
 
+//@desc   Get all quizzes for a user
+//@route  GET /api/quiz/
+//@access private
+export const getAllQuizzes = async (
+  req: any,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const quizzes = await Quiz.find({
+      userId: req.user._id,
+    })
+      .populate('documentId', 'title fileName')
+      .sort({ createdAt: -1 });
+    
+    res.status(200).json({
+      success: true,
+      count: quizzes.length,
+      data: quizzes,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 //@desc   Get all quiz by document ID
 //@route  GET /api/quiz/document/:documentId
 //@access private
@@ -58,7 +83,7 @@ export const getQuizById = async (
   }
 };
 
-//@desc   Handle submit
+//@desc   Handle submit quiz
 //@route  POST /api/quiz/:id/submit
 //@access private
 export const submitQuiz = async (
