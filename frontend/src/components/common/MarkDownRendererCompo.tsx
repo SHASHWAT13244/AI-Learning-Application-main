@@ -8,31 +8,31 @@ const prismTheme: { [key: string]: CSSProperties } | undefined = dracula;
 
 export const MarkDownRendererCompo = ({ content }: { content: string }) => {
     return (
-        <div className="text-neutral-700">
+        <div className="text-neutral-700 dark:text-neutral-300">
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
                     h1: ({ ...props }) => (
                         <h1
-                            className="text-xl font-bold mt-4 mb-2"
+                            className="text-xl font-bold mt-4 mb-2 text-slate-900 dark:text-slate-100"
                             {...props}
                         />
                     ),
                     h2: ({ ...props }) => (
                         <h2
-                            className="text-lg font-bold mt-4 mb-2"
+                            className="text-lg font-bold mt-4 mb-2 text-slate-900 dark:text-slate-100"
                             {...props}
                         />
                     ),
                     h3: ({ ...props }) => (
                         <h3
-                            className="text-md font-bold mt-4 mb-2"
+                            className="text-md font-bold mt-4 mb-2 text-slate-900 dark:text-slate-100"
                             {...props}
                         />
                     ),
                     h4: ({ ...props }) => (
                         <h4
-                            className="text-sm font-bold mt-4 mb-2"
+                            className="text-sm font-bold mt-4 mb-2 text-slate-900 dark:text-slate-100"
                             {...props}
                         />
                     ),
@@ -41,7 +41,7 @@ export const MarkDownRendererCompo = ({ content }: { content: string }) => {
                     ),
                     a: ({ ...props }) => (
                         <a
-                            className="text-[#00d492] hover:underline"
+                            className="text-emerald-600 dark:text-teal-400 hover:underline"
                             {...props}
                         />
                     ),
@@ -59,18 +59,17 @@ export const MarkDownRendererCompo = ({ content }: { content: string }) => {
                     ),
                     li: ({ ...props }) => <li className="mb-1" {...props} />,
                     strong: ({ ...props }) => (
-                        <strong className="font-semibold" {...props} />
+                        <strong className="font-semibold text-slate-900 dark:text-slate-100" {...props} />
                     ),
-                    em: ({ ...props }) => <em className=" italic" {...props} />,
+                    em: ({ ...props }) => <em className="italic" {...props} />,
                     blockquote: ({ ...props }) => (
                         <blockquote
-                            className="border-l-4 border-neutral-300 pl-4 italic text-neutral-400 my-4"
+                            className="border-l-4 border-neutral-300 dark:border-neutral-700 pl-4 italic text-neutral-400 dark:text-neutral-500 my-4"
                             {...props}
                         />
                     ),
                     code: ({ className, children, ...props }) => {
                         const match = /language-(\w+)/.exec(className || '');
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
                         const { ref, ...rest } = props as any;
                         return match ? (
                             <SyntaxHighlighter
@@ -83,7 +82,7 @@ export const MarkDownRendererCompo = ({ content }: { content: string }) => {
                             </SyntaxHighlighter>
                         ) : (
                             <code
-                                className="bg-neutral-100 p-1 rounded font-mono text-sm"
+                                className="bg-neutral-100 dark:bg-neutral-800 p-1 rounded font-mono text-sm text-slate-800 dark:text-slate-200"
                                 {...rest}
                             >
                                 {children}
