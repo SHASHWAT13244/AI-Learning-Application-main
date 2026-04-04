@@ -43,10 +43,8 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
 
     useEffect(() => {
         fetchQuizzes();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [documentId]);
 
-    //generate quiz
     const handleGenerateQuiz = async (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         setgenerating(true);
@@ -67,20 +65,18 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
         }
     };
 
-    //handle delete request
     const handleDeleteRequest = (q: QuizPayloadTypes) => {
         setSelectedQuiz(q);
         setIsDeleteModalOpen(true);
     };
 
-    //delete confirm popup
     const handleDeleteCfrmPopup = async () => {
         if (!selectedQuiz) return;
         setIsDeleting(true);
 
         try {
             await QuizServices.deleteQuiz(selectedQuiz._id);
-            toast.success(`${selectedQuiz.title} || Quiz delted successfully`);
+            toast.success(`${selectedQuiz.title} quiz deleted successfully`);
             setIsDeleteModalOpen(false);
             setSelectedQuiz(null);
             fetchQuizzes();
@@ -96,7 +92,6 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
         }
     };
 
-    //render quiz content
     const renderQuizContent = () => {
         if (loading) {
             return <Spinner />;
@@ -106,7 +101,7 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
             return (
                 <EmptyCard
                     title="No Quizzes Yet"
-                    description="Generate a quiz from you document to test your knowledge"
+                    description="Generate a quiz from your document to test your knowledge"
                 />
             );
         }
@@ -129,13 +124,12 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
             </div>
         );
     };
+    
     return (
-        <div className="bg-white border border-neutral-200 rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-800 border border-neutral-200 dark:border-white/10 rounded-lg p-6">
             <div className="flex justify-end gap-2 mb-4">
                 <Button
-                    onClick={() => {
-                        setIsModalOpen(true);
-                    }}
+                    onClick={() => setIsModalOpen(true)}
                 >
                     <Plus size={16} />
                     Generate Quiz
@@ -144,7 +138,6 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
 
             {renderQuizContent()}
 
-            {/* Generate Quiz  */}
             <Modal
                 title="Generate New Quiz"
                 isOpen={isModalOpen}
@@ -152,7 +145,7 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
             >
                 <form onSubmit={handleGenerateQuiz} className="space-y-4">
                     <div>
-                        <label className="block text-xs font-medium text-neutral-700 mb-1.5">
+                        <label className="block text-xs font-medium text-neutral-700 dark:text-slate-300 mb-1.5">
                             No. Of Questions
                         </label>
                         <input
@@ -165,7 +158,7 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
                             }
                             min="1"
                             required
-                            className="w-full h-9 px-3 border border-neutral-200 rounded-lg bg-white text-sm text-neutral-900 placeholder-neutral-400 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[#00d492] focus:border-transparent"
+                            className="w-full h-9 px-3 border border-neutral-200 dark:border-white/10 rounded-lg bg-white dark:bg-slate-900 text-sm text-neutral-900 dark:text-slate-100 placeholder-neutral-400 dark:placeholder-slate-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-teal-500 focus:border-transparent"
                         />
                     </div>
                     <div className="flex justify-end gap-2 pt-2">
@@ -184,16 +177,15 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
                 </form>
             </Modal>
 
-            {/* Delete Confirmation */}
             <Modal
                 isOpen={isDeleteModalOpen}
                 onClose={() => setIsDeleteModalOpen(false)}
                 title="Confirm Delete Quiz"
             >
                 <div className="space-y-4">
-                    <p className="text-sm text-neutral-600">
+                    <p className="text-sm text-neutral-600 dark:text-slate-400">
                         Are you sure you want to delete the quiz:{' '}
-                        <span className="font-semibold text-neutral-900">
+                        <span className="font-semibold text-neutral-900 dark:text-slate-100">
                             {selectedQuiz?.title || 'Quiz'}
                         </span>
                         ?
@@ -202,7 +194,7 @@ export const QuizManager = ({ documentId }: { documentId: string }) => {
                         <Button
                             type="button"
                             variant="outline"
-                            onClick={() => setIsModalOpen(false)}
+                            onClick={() => setIsDeleteModalOpen(false)}
                             disabled={isDeleting}
                         >
                             Cancel
