@@ -55,7 +55,6 @@ const FlashCardPage = () => {
 
     useEffect(() => {
         fetchFlashcards();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [documentId]);
 
     const handleGenerateFlashCards = async () => {
@@ -88,6 +87,7 @@ const FlashCardPage = () => {
             prev => (prev - 1 + cardData.length) % cardData.length
         );
     };
+    
     const handleReview = async (index: number) => {
         const currentCard = cardData[currCardInd];
         if (!currentCard) return;
@@ -154,7 +154,7 @@ const FlashCardPage = () => {
             return (
                 <EmptyCard
                     title="No Flashcard yet"
-                    description="Generate flashcrds from your document to start learning"
+                    description="Generate flashcards from your document to start learning"
                 />
             );
         }
@@ -180,7 +180,7 @@ const FlashCardPage = () => {
                         >
                             <ChevronLeft size={16} /> Previous
                         </Button>
-                        <span className="text-sm text-neutral-400">
+                        <span className="text-sm text-neutral-400 dark:text-slate-500">
                             {currCardInd + 1}/{cardData.length}
                         </span>
                         <Button
@@ -195,19 +195,20 @@ const FlashCardPage = () => {
             </div>
         );
     };
+    
     return (
         <div>
             <div className="mb-4">
                 <Link
                     to={`/documents/${documentId}`}
-                    className="inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm text-neutral-600 dark:text-slate-400 hover:text-neutral-900 dark:hover:text-slate-200 transition-colors"
                 >
                     <ArrowLeft size={16} />
                     Back to documents
                 </Link>
             </div>
             <Pageheader
-                title={`Detailed Flashcard - ${flashCardSets && flashCardSets[0]?.documentId.title}`}
+                title={`Detailed Flashcard - ${flashCardSets && flashCardSets[0]?.documentId?.title}`}
             >
                 <div className="flex gap-2">
                     {!loading &&
@@ -245,10 +246,10 @@ const FlashCardPage = () => {
             <Modal
                 isOpen={isDeleteModalOpen}
                 onClose={() => setIsDeleteModalOpen(false)}
-                title="Confirm Delete FlashCardset"
+                title="Confirm Delete Flashcard Set"
             >
                 <div className="space-y-4">
-                    <p className="text-sm text-neutral-600">
+                    <p className="text-sm text-neutral-600 dark:text-slate-400">
                         Are you sure you want to delete all flashcards for this
                         document?
                     </p>
