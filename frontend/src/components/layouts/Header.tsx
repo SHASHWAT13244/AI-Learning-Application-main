@@ -8,7 +8,7 @@ export const Header = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
     const { user } = useAuth();
     return (
         <>
-            <header className="sticky top-0 z-40 w-full h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-emerald-500/10">
+            <header className="sticky top-0 z-40 w-full h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-red-500/10">
                 <div className="flex items-center justify-between h-full px-6">
                     <button
                         onClick={toggleSidebar}
@@ -24,13 +24,13 @@ export const Header = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
                         <ThemeToggle />
                         
                         <div
-                            className="flex items-center gap-3 pl-3 border-l border-slate-200/60 dark:border-emerald-500/20 cursor-pointer"
+                            className="flex items-center gap-3 pl-3 border-l border-slate-200/60 dark:border-red-500/20 cursor-pointer"
                             onClick={() => {
                                 navigate('/profile');
                             }}
                         >
                             <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200 cursor-pointer group">
-                                <div className="w-9 h-9 rounded-xl bg-linear-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:shadow-lg group-hover:shadow-emerald-500/30 transition-all duration-200">
+                                <div className="w-9 h-9 rounded-xl bg-linear-to-br from-red-500 to-rose-500 flex items-center justify-center text-white shadow-md shadow-red-500/20 group-hover:shadow-lg group-hover:shadow-red-500/30 transition-all duration-200">
                                     <User size={18} strokeWidth={2.5} />
                                 </div>
                                 <div className="hidden sm:block">
