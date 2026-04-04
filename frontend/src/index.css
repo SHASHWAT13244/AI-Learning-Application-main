@@ -18,16 +18,16 @@
 }
 
 /* ============================================
-   MODERN RED DARK THEME
-   Deep Crimson + Ruby/Red Accents
+   RUBY DARK THEME - #822659
+   Deep Ruby Background
    ============================================ */
 
 .dark body {
-    background: linear-gradient(135deg, #0a0404 0%, #0f0808 50%, #0c0606 100%);
+    background: linear-gradient(135deg, #1a0a14 0%, #2d1220 50%, #1a0a14 100%);
     background-attachment: fixed;
 }
 
-/* Glassmorphism Cards with red tint */
+/* Cards with ruby tint */
 .dark .bg-white,
 .dark .bg-white\/80,
 .dark .bg-white\/90,
@@ -36,68 +36,61 @@
 .dark .bg-white\/80.backdrop-blur-xl,
 .dark .bg-white\/80.backdrop-blur-xl.border-2,
 .dark .bg-white\/80.backdrop-blur-xl.border {
-    background: rgba(20, 12, 14, 0.85) !important;
+    background: rgba(30, 15, 22, 0.85) !important;
     backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(220, 38, 38, 0.12) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(130, 38, 89, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
 }
 
-/* Modern Borders with red glow */
+/* Borders with ruby */
 .dark .border-slate-200,
 .dark .border-slate-200\/60,
 .dark .border-slate-200\/50,
 .dark .border-slate-100,
 .dark .border-neutral-200 {
-    border-color: rgba(220, 38, 38, 0.15) !important;
+    border-color: rgba(130, 38, 89, 0.2) !important;
 }
 
-.dark .border-red-200 {
-    border-color: rgba(220, 38, 38, 0.35) !important;
-    box-shadow: 0 0 12px rgba(220, 38, 38, 0.1);
+.dark .border-emerald-200 {
+    border-color: rgba(130, 38, 89, 0.35) !important;
 }
 
 /* Text Colors */
 .dark .text-slate-900,
 .dark .text-slate-800,
 .dark .text-neutral-900 {
-    color: #ffffff !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #fdf2f8 !important;
 }
 
 .dark .text-slate-700,
 .dark .text-neutral-700 {
-    color: #f1f1f1 !important;
+    color: #fce7f3 !important;
 }
 
 .dark .text-slate-600,
 .dark .text-neutral-600 {
-    color: #cbd5e1 !important;
+    color: #fbcfe8 !important;
 }
 
 .dark .text-slate-500,
 .dark .text-neutral-500 {
-    color: #94a3b8 !important;
+    color: #f9a8d4 !important;
 }
 
 .dark .text-slate-400,
 .dark .text-neutral-400 {
-    color: #64748b !important;
+    color: #f472b6 !important;
 }
 
-/* Red accent text colors */
-.dark .text-red-500,
-.dark .text-red-600,
-.dark .text-red-700 {
-    color: #ef4444 !important;
-    text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+/* Ruby accent text */
+.dark .text-emerald-600,
+.dark .text-emerald-700 {
+    color: #a855a8 !important;
 }
 
-.dark .text-rose-500,
-.dark .text-rose-600,
-.dark .text-rose-700 {
-    color: #f43f5e !important;
-    text-shadow: 0 0 8px rgba(244, 63, 94, 0.3);
+.dark .text-teal-600,
+.dark .text-teal-700 {
+    color: #822659 !important;
 }
 
 /* Background Utilities */
@@ -106,29 +99,29 @@
 .dark .bg-slate-100,
 .dark .bg-slate-100\/50,
 .dark .bg-neutral-50 {
-    background: rgba(25, 15, 18, 0.6) !important;
+    background: rgba(45, 18, 32, 0.6) !important;
     backdrop-filter: blur(8px) !important;
 }
 
 .dark .bg-slate-200,
 .dark .bg-neutral-100 {
-    background: rgba(35, 20, 24, 0.7) !important;
+    background: rgba(55, 25, 40, 0.7) !important;
 }
 
-/* Red backgrounds */
-.dark .bg-red-50 {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(220, 38, 38, 0.02)) !important;
+/* Ruby backgrounds */
+.dark .bg-emerald-50 {
+    background: rgba(130, 38, 89, 0.15) !important;
 }
 
-.dark .bg-rose-50 {
-    background: linear-gradient(135deg, rgba(244, 63, 94, 0.08), rgba(244, 63, 94, 0.02)) !important;
+.dark .bg-teal-50 {
+    background: rgba(130, 38, 89, 0.1) !important;
 }
 
-.dark .bg-red-100 {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(220, 38, 38, 0.04)) !important;
+.dark .bg-emerald-100 {
+    background: rgba(130, 38, 89, 0.2) !important;
 }
 
-/* Shadows with red glow */
+/* Shadows with ruby */
 .dark .shadow-slate-200\/50,
 .dark .shadow-slate-200\/60,
 .dark .shadow-slate-200\/30,
@@ -137,137 +130,131 @@
 .dark .shadow-lg,
 .dark .shadow-md,
 .dark .shadow-sm {
-    box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
-.dark .shadow-red-500\/25,
-.dark .shadow-red-500\/30,
-.dark .shadow-red-500\/20 {
-    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.2), 0 0 0 1px rgba(220, 38, 38, 0.1) !important;
+.dark .shadow-emerald-500\/25,
+.dark .shadow-emerald-500\/30,
+.dark .shadow-emerald-500\/20 {
+    box-shadow: 0 8px 32px rgba(130, 38, 89, 0.2) !important;
 }
 
 /* Input Fields */
 .dark input,
 .dark textarea,
 .dark select {
-    background: rgba(18, 10, 12, 0.8) !important;
-    border: 1px solid rgba(220, 38, 38, 0.2) !important;
-    color: #f1f1f1 !important;
+    background: rgba(35, 15, 25, 0.8) !important;
+    border: 1px solid rgba(130, 38, 89, 0.3) !important;
+    color: #fdf2f8 !important;
     border-radius: 12px !important;
-    transition: all 0.2s ease !important;
 }
 
 .dark input::placeholder,
 .dark textarea::placeholder {
-    color: #64748b !important;
+    color: #a855a8 !important;
 }
 
 .dark input:focus,
 .dark textarea:focus,
 .dark select:focus {
-    border-color: #ef4444 !important;
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15), 0 0 0 1px #ef4444 !important;
+    border-color: #822659 !important;
+    box-shadow: 0 0 0 3px rgba(130, 38, 89, 0.15) !important;
     outline: none !important;
 }
 
 /* Modals */
 .dark .fixed.inset-0 .bg-white,
 .dark .fixed.inset-0 .bg-white\/95 {
-    background: rgba(18, 10, 12, 0.96) !important;
+    background: rgba(25, 10, 18, 0.96) !important;
     backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(220, 38, 38, 0.15) !important;
+    border: 1px solid rgba(130, 38, 89, 0.2) !important;
 }
 
 .dark .fixed.inset-0 .bg-slate-900\/50 {
-    background: rgba(0, 0, 0, 0.8) !important;
-    backdrop-filter: blur(4px) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
 }
 
-/* Scrollbar - Red gradient */
+/* Scrollbar - Ruby */
 .dark ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
 
 .dark ::-webkit-scrollbar-track {
-    background: rgba(25, 15, 18, 0.4);
+    background: rgba(45, 18, 32, 0.4);
     border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #dc2626, #e11d48);
+    background: #822659;
     border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #ef4444, #f43f5e);
+    background: #a855a8;
 }
 
 /* Hover States */
 .dark .group:hover .bg-white\/80 {
-    background: rgba(35, 20, 24, 0.9) !important;
+    background: rgba(55, 25, 40, 0.9) !important;
     transform: translateY(-2px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 .dark .hover\:bg-slate-100:hover {
-    background: rgba(35, 22, 25, 0.8) !important;
-    transform: scale(0.98);
+    background: rgba(55, 25, 40, 0.8) !important;
 }
 
-/* Buttons - Red accent */
+/* Buttons */
 .dark button:not(.bg-linear-to-r):not(.bg-linear-to-br) {
-    background: rgba(35, 20, 24, 0.7) !important;
-    backdrop-filter: blur(8px) !important;
-    border: 1px solid rgba(220, 38, 38, 0.15) !important;
-    transition: all 0.2s ease !important;
+    background: rgba(55, 25, 40, 0.7) !important;
+    border: 1px solid rgba(130, 38, 89, 0.25) !important;
+    color: #fce7f3 !important;
 }
 
 .dark button:not(.bg-linear-to-r):not(.bg-linear-to-br):hover {
-    background: rgba(45, 28, 32, 0.9) !important;
-    border-color: rgba(220, 38, 38, 0.3) !important;
-    transform: translateY(-1px);
+    background: rgba(75, 35, 55, 0.9) !important;
+    border-color: rgba(130, 38, 89, 0.4) !important;
 }
 
 /* Toast Notifications */
 .dark .goober {
-    background: rgba(18, 10, 12, 0.96) !important;
-    backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(220, 38, 38, 0.2) !important;
+    background: rgba(25, 10, 18, 0.96) !important;
+    border: 1px solid rgba(130, 38, 89, 0.25) !important;
     border-radius: 16px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    color: #fdf2f8 !important;
 }
 
-/* Progress Bars - Red gradient */
+/* Progress Bars - Ruby */
 .dark .bg-slate-100 {
-    background: rgba(35, 20, 24, 0.6) !important;
+    background: rgba(55, 25, 40, 0.6) !important;
 }
 
 .dark .bg-linear-to-r.from-emerald-500.to-teal-500 {
-    background: linear-gradient(90deg, #dc2626, #e11d48) !important;
-    box-shadow: 0 0 12px rgba(220, 38, 38, 0.4);
+    background: linear-gradient(90deg, #822659, #a855a8) !important;
+    box-shadow: 0 0 12px rgba(130, 38, 89, 0.4);
 }
 
 /* Chat Interface */
 .dark .bg-linear-to-br.from-slate-50\/50 {
-    background: linear-gradient(135deg, rgba(25, 15, 18, 0.6), rgba(20, 12, 14, 0.8)) !important;
+    background: linear-gradient(135deg, rgba(45, 18, 32, 0.6), rgba(30, 15, 22, 0.8)) !important;
 }
 
 /* Sidebar */
 .dark .bg-white\/90 {
-    background: rgba(12, 6, 8, 0.94) !important;
+    background: rgba(20, 8, 14, 0.94) !important;
     backdrop-filter: blur(20px) !important;
-    border-right: 1px solid rgba(220, 38, 38, 0.1) !important;
+    border-right: 1px solid rgba(130, 38, 89, 0.15) !important;
 }
 
 /* Header */
 .dark .bg-white\/80 {
-    background: rgba(12, 6, 8, 0.88) !important;
+    background: rgba(20, 8, 14, 0.88) !important;
     backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(220, 38, 38, 0.1) !important;
+    border-bottom: 1px solid rgba(130, 38, 89, 0.15) !important;
 }
 
-/* Gradients - Red theme */
+/* Gradients - Ruby */
 .dark .bg-linear-to-br,
 .dark .bg-linear-to-r {
     background-size: 200% 200% !important;
@@ -282,88 +269,70 @@
 
 .dark .from-emerald-500,
 .dark .to-teal-500 {
-    --tw-gradient-from: #dc2626 !important;
-    --tw-gradient-to: #e11d48 !important;
+    --tw-gradient-from: #822659 !important;
+    --tw-gradient-to: #a855a8 !important;
 }
 
 /* Flashcard */
 .dark .bg-white\/80.backdrop-blur-xl.border-2.border-slate-200 {
-    background: rgba(20, 12, 14, 0.88) !important;
-    border: 1px solid rgba(220, 38, 38, 0.15) !important;
-    transform: perspective(1000px) rotateX(0deg);
-    transition: transform 0.3s ease;
-}
-
-.dark .bg-white\/80.backdrop-blur-xl.border-2.border-slate-200:hover {
-    transform: perspective(1000px) rotateX(2deg);
+    background: rgba(30, 15, 22, 0.88) !important;
+    border: 1px solid rgba(130, 38, 89, 0.2) !important;
 }
 
 /* Quiz options */
 .dark .bg-slate-50\/50 {
-    background: rgba(25, 15, 18, 0.6) !important;
+    background: rgba(45, 18, 32, 0.6) !important;
 }
 
 .dark .hover\:bg-white:hover {
-    background: rgba(35, 22, 25, 0.9) !important;
+    background: rgba(55, 25, 40, 0.9) !important;
 }
 
-/* Quiz results - Red indicators */
-.dark .bg-red-50 {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(220, 38, 38, 0.02)) !important;
-    border-left: 3px solid #dc2626 !important;
+/* Quiz results */
+.dark .bg-emerald-50 {
+    background: rgba(130, 38, 89, 0.1) !important;
+    border-left: 3px solid #822659 !important;
 }
 
 .dark .bg-rose-50 {
-    background: linear-gradient(135deg, rgba(244, 63, 94, 0.08), rgba(244, 63, 94, 0.02)) !important;
-    border-left: 3px solid #f43f5e !important;
+    background: rgba(168, 85, 168, 0.1) !important;
+    border-left: 3px solid #a855a8 !important;
 }
 
 /* Dashboard cards */
 .dark .bg-white\/80.backdrop-blur-xl.border {
-    background: rgba(20, 12, 14, 0.8) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(30, 15, 22, 0.8) !important;
+    transition: all 0.3s ease;
 }
 
 .dark .bg-white\/80.backdrop-blur-xl.border:hover {
     transform: translateY(-4px);
-    border-color: rgba(220, 38, 38, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(130, 38, 89, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Profile page */
 .dark .bg-white.border-neutral-200 {
-    background: rgba(20, 12, 14, 0.8) !important;
+    background: rgba(30, 15, 22, 0.8) !important;
 }
 
 /* AI Actions cards */
 .dark .bg-white\/80.backdrop-blur-xl.border-2 {
-    background: rgba(20, 12, 14, 0.8) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(30, 15, 22, 0.8) !important;
+    transition: all 0.3s ease;
 }
 
 .dark .bg-white\/80.backdrop-blur-xl.border-2:hover {
     transform: translateY(-4px);
-    border-color: rgba(220, 38, 38, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(130, 38, 89, 0.4);
 }
 
-/* Loading spinner - Red */
+/* Loading spinner */
 .dark .react-spinners-beat-loader div {
-    background-color: #dc2626 !important;
+    background-color: #822659 !important;
 }
 
-/* Red glow effects */
-.dark .hover\:shadow-red-500\/25:hover {
-    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.25) !important;
-}
-
-/* Card hover border */
-.dark .group\/card:hover {
-    border-color: rgba(220, 38, 38, 0.4) !important;
-}
-
-/* Button hover effects */
-.dark .btn-red-hover:hover {
-    background: linear-gradient(135deg, #dc2626, #e11d48) !important;
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4) !important;
+/* Active navigation item */
+.dark .bg-linear-to-r.from-emerald-500.to-teal-500 {
+    background: linear-gradient(135deg, #822659, #a855a8) !important;
 }
