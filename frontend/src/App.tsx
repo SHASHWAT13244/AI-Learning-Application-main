@@ -15,7 +15,6 @@ const App = () => {
     const RegisterPage = lazy(() => import('./pages/auth/Register'));
     const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-    //protected routes
     const DashBoardPage = lazy(() => import('./pages/dashboard/DashboardPage'));
     const DocumentListPage = lazy(
         () => import('./pages/documents/DocumentListPage')
@@ -59,7 +58,6 @@ const App = () => {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
 
-                    {/* Protected Routes */}
                     <Route element={<ProtectRoute />}>
                         <Route path="/dashboard" element={<DashBoardPage />} />
                         <Route
