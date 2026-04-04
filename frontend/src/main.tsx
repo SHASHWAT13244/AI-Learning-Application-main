@@ -13,8 +13,6 @@ createRoot(document.getElementById('root')!).render(
                 toastOptions={{ 
                     duration: 3000,
                     style: {
-                        background: 'var(--toast-bg, #fff)',
-                        color: 'var(--toast-color, #000)',
                         borderRadius: '16px',
                         padding: '12px 16px',
                     }
