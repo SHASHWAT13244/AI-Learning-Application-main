@@ -8,7 +8,7 @@ export const AppLayout = ({ children }: { children: ReactNode }) => {
         setIsSidebarEnabled(!isSidebarEnabled);
     };
     return (
-        <div className="flex h-screen bg-neutral-50 text-neutral-900">
+        <div className="flex h-screen bg-neutral-50 dark:bg-slate-900 text-neutral-900 dark:text-slate-100">
             <Sider
                 isSidebarOpen={isSidebarEnabled}
                 toggleSidebar={toggleSidebar}
