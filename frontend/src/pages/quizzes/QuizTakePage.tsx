@@ -67,7 +67,6 @@ const QuizTakePage = () => {
         try {
             // Format answers correctly with the actual selected answer text
             const formattedAnswers = Object.keys(selectedAnswers).map(questionId => {
-                const question = quiz?.questions.find(q => q._id === questionId);
                 const questionIndex = quiz?.questions.findIndex(q => q._id === questionId);
                 const selectedOptionText = selectedAnswers[questionId]?.text;
                 
