@@ -14,12 +14,12 @@ const FlashCardListPage = () => {
     >([]);
     const [loading, setLoading] = useState<boolean>(true);
 
-    //data fetch
     useEffect(() => {
         const fetchFlashCardSets = async () => {
             try {
                 const { data } = await FlashCardServices.getAllFlashCardSets();
-                setFlashCardSet(data);
+                const validSets = data.filter(set => set && set.documentId);
+                setFlashCardSet(validSets);
             } catch (error) {
                 console.error(error);
                 if (error instanceof Error) {
@@ -42,7 +42,7 @@ const FlashCardListPage = () => {
             return (
                 <EmptyCard
                     title="No Flashcard Set Found"
-                    description="You haven`t generated any flashacards yet.Go to a document to create you first set"
+                    description="You haven't generated any flashcards yet. Go to a document to create your first set"
                 />
             );
         }
@@ -61,10 +61,14 @@ const FlashCardListPage = () => {
             </div>
         );
     };
+    
     return (
-        <div>
-            <Pageheader title="All FlashCard Sets" />
-            {renderContent()}
+        <div className="min-h-screen">
+            <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px, transparent_1px)] dark:bg-[radial-gradient(#456882_1px, transparent_1px)] bg-size-[16px_16px] opacity-30 pointer-events-none" />
+            <div className="relative max-w-7xl mx-auto">
+                <Pageheader title="All FlashCard Sets" />
+                {renderContent()}
+            </div>
         </div>
     );
 };
