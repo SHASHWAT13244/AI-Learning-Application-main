@@ -17,7 +17,7 @@ const QuizTakePage = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [currQnsindex, setCurrQnsIndex] = useState<number>(0);
     const [selectedAnswers, setSelectedAnswers] = useState<
-        Record<string, number>
+        Record<string, { index: number; text: string }>
     >({});
     const [submitting, setSubmitting] = useState<boolean>(false);
 
@@ -41,10 +41,10 @@ const QuizTakePage = () => {
         fetchQuizById();
     }, [quizId]);
 
-    const handleOptionsChange = (questionId: string, optionIndex: number) => {
+    const handleOptionsChange = (questionId: string, optionIndex: number, optionText: string) => {
         setSelectedAnswers(prev => ({
             ...prev,
-            [questionId]: optionIndex,
+            [questionId]: { index: optionIndex, text: optionText },
         }));
     };
 
@@ -65,21 +65,22 @@ const QuizTakePage = () => {
 
         setSubmitting(true);
         try {
-            const formatttedAns = Object.keys(selectedAnswers).map(
-                questionId => {
-                    const question = quiz?.questions.find(
-                        q => q._id === questionId
-                    );
-                    const questionIndex = quiz?.questions.findIndex(
-                        q => q._id === questionId
-                    );
-                    const optionIndex = selectedAnswers[questionId];
-                    const selectedOption = question?.options[optionIndex];
-                    return { questionIndex, selectedAnswer: selectedOption };
-                }
-            );
+            // Format answers correctly with the actual selected answer text
+            const formattedAnswers = Object.keys(selectedAnswers).map(questionId => {
+                const question = quiz?.questions.find(q => q._id === questionId);
+                const questionIndex = quiz?.questions.findIndex(q => q._id === questionId);
+                const selectedOptionText = selectedAnswers[questionId]?.text;
+                
+                return { 
+                    questionIndex, 
+                    selectedAnswer: selectedOptionText || ''
+                };
+            });
 
-            await QuizServices.SubmitQuiz(quizId, formatttedAns);
+            // Filter out any undefined answers
+            const validAnswers = formattedAnswers.filter(a => a.questionIndex !== undefined && a.selectedAnswer);
+            
+            await QuizServices.SubmitQuiz(quizId, validAnswers);
             toast.success('Quiz submitted successfully');
             navigate(`/quizzes/${quizId}/results`);
         } catch (error) {
@@ -113,9 +114,9 @@ const QuizTakePage = () => {
             </div>
         );
     }
+    
     const quizCurrentQns = quiz.questions && quiz.questions[currQnsindex];
-    // const isAnswered = selectedAnswers?.hasOwnProperty(quizCurrentQns?._id);
-    const isAnswered = Object.hasOwn(selectedAnswers ?? {}, quizCurrentQns._id);
+    const isAnswered = selectedAnswers && selectedAnswers[quizCurrentQns._id] !== undefined;
     const answeredCount = Object.keys(selectedAnswers)?.length;
 
     return (
@@ -125,7 +126,7 @@ const QuizTakePage = () => {
             >
                 <Pageheader title={quiz.title || 'Quiz'} />
 
-                {/* Progress Bar  */}
+                {/* Progress Bar */}
                 <div className="mb-6">
                     <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-semibold text-slate-700">
@@ -138,19 +139,15 @@ const QuizTakePage = () => {
                     </div>
                     <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden">
                         <div
-                            className=" absolute inset-y-0 left-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500 ease-out"
+                            className="absolute inset-y-0 left-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500 ease-out"
                             style={{
-                                width: `${
-                                    ((currQnsindex + 1) /
-                                        quiz?.questions?.length) *
-                                    100
-                                }%`,
+                                width: `${((currQnsindex + 1) / quiz?.questions?.length) * 100}%`,
                             }}
                         />
                     </div>
                 </div>
 
-                {/* Question Card  */}
+                {/* Question Card */}
                 <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200 rounded-2xl shadow-xl shadow-slate-200/50 p-6 mb-8">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl mb-6">
                         <div className="w-2 h-2 bg-emerald-500 animate-pulse rounded-full" />
@@ -162,45 +159,36 @@ const QuizTakePage = () => {
                         {quizCurrentQns?.question}
                     </h3>
 
-                    {/* Options  */}
+                    {/* Options */}
                     <div className="space-y-3">
                         {quizCurrentQns.options.map((option, index) => {
-                            const isSelected =
-                                selectedAnswers &&
-                                selectedAnswers[quizCurrentQns._id] === index;
+                            const isSelected = selectedAnswers && selectedAnswers[quizCurrentQns._id]?.index === index;
                             return (
                                 <label
                                     key={index}
                                     className={`group relative flex items-center p-3 border-2 rounded-xl cursor-pointer transition-all duration-300
-               ${
-                   isSelected
-                       ? 'border-emerald-500 bg-emerald-50 shadow-lg shadow-emerald-500/10'
-                       : 'border-slate-200 bg-slate-50/50 hover:border-slate-300 hover:bg-white hover:shadow-md'
-               }
-              `}
+                                    ${
+                                        isSelected
+                                            ? 'border-emerald-500 bg-emerald-50 shadow-lg shadow-emerald-500/10'
+                                            : 'border-slate-200 bg-slate-50/50 hover:border-slate-300 hover:bg-white hover:shadow-md'
+                                    }`}
                                 >
                                     <input
                                         type="radio"
                                         name={`question-${quizCurrentQns._id}`}
                                         value={index}
                                         checked={isSelected ?? false}
-                                        onChange={() =>
-                                            handleOptionsChange(
-                                                quizCurrentQns._id,
-                                                index
-                                            )
-                                        }
+                                        onChange={() => handleOptionsChange(quizCurrentQns._id, index, option)}
                                         className="sr-only"
                                     />
-                                    {/*  Custom Radio btn */}
+                                    {/* Custom Radio btn */}
                                     <div
                                         className={`shrink-0 w-5 h-5 rounded-full border-2 transition-all duration-200
-                   ${
-                       isSelected
-                           ? 'border-emerald-500 bg-emerald-500'
-                           : 'border-slate-300 bg-white group-hover:border-emerald-400'
-                   }
-                  `}
+                                        ${
+                                            isSelected
+                                                ? 'border-emerald-500 bg-emerald-500'
+                                                : 'border-slate-300 bg-white group-hover:border-emerald-400'
+                                        }`}
                                     >
                                         {isSelected && (
                                             <div className="w-full h-full flex items-center justify-center">
@@ -220,7 +208,7 @@ const QuizTakePage = () => {
                                         {option}
                                     </span>
 
-                                    {/* Selected Checkmark  */}
+                                    {/* Selected Checkmark */}
                                     {isSelected && (
                                         <CheckCircle2
                                             className="ml-auto w-5 h-5 text-emerald-500"
@@ -233,7 +221,7 @@ const QuizTakePage = () => {
                     </div>
                 </div>
 
-                {/* Navigation button  */}
+                {/* Navigation button */}
                 <div className="flex items-center justify-between gap-4">
                     <Button
                         variant="secondary"
@@ -244,11 +232,12 @@ const QuizTakePage = () => {
                             className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform duration-200"
                             strokeWidth={2.5}
                         />
+                        Previous
                     </Button>
 
                     {currQnsindex === quiz.questions.length - 1 ? (
                         <button
-                            className="group relative px-8 h-12 bg-linear-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold text-xs rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:opacity-100 overflow-hidden"
+                            className="group relative px-8 h-12 bg-linear-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 overflow-hidden"
                             onClick={handleSubmitQuiz}
                             disabled={submitting || !isAnswered}
                         >
@@ -264,7 +253,7 @@ const QuizTakePage = () => {
                                             className="w-4 h-4"
                                             strokeWidth={2.5}
                                         />
-                                        Submit
+                                        Submit Quiz
                                     </>
                                 )}
                             </span>
@@ -285,13 +274,9 @@ const QuizTakePage = () => {
                 </div>
 
                 {/* Question Navigation Dots */}
-                <div className="mt-0 flex items-center justify-center flex-wrap">
+                <div className="mt-8 flex items-center justify-center flex-wrap gap-2">
                     {quiz.questions.map((_, index) => {
-                        const isAnsweredQuestions = Object.hasOwn(
-                            selectedAnswers ?? {},
-                            quiz.questions[index]._id
-                        );
-                        // selectedAnswers.hasOwnProperty(quiz.questions[index]._id);
+                        const isAnsweredQuestions = selectedAnswers && selectedAnswers[quiz.questions[index]._id] !== undefined;
                         const isCurrent = index === currQnsindex;
 
                         return (
@@ -305,8 +290,7 @@ const QuizTakePage = () => {
                                         : isAnsweredQuestions
                                           ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
                                           : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                                } disabled:opacity-50 disabled:cursor-not-allowed
-             `}
+                                } disabled:opacity-50 disabled:cursor-not-allowed`}
                             >
                                 {index + 1}
                             </button>
