@@ -23,7 +23,6 @@ export const Sider = ({
         logout();
     };
 
-    //nav links
     const navLinks = [
         { to: '/dashboard', text: 'Dashboard', icon: LayoutDashboard },
         { to: '/documents', text: 'Documents', icon: FileText },
@@ -46,7 +45,6 @@ export const Sider = ({
                 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
                 `}
             >
-                {/* logo and close button */}
                 <div className="flex items-center justify-between h-16 px-5 border-b border-slate-200/60">
                     <div className="flex items-center gap-3">
                         <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-linear-to-br from-emerald-500 to-teal-500 shadow-md shadow-emerald-500/20">
@@ -68,7 +66,6 @@ export const Sider = ({
                     </button>
                 </div>
 
-                {/* Navigation */}
                 <nav className="flex-1 px-3 py-6 space-y-1.5">
                     {navLinks.map(link => (
                         <NavLink
@@ -100,7 +97,6 @@ export const Sider = ({
                     ))}
                 </nav>
 
-                {/* logout Section */}
                 <div className="px-3 py-4 border-t border-slate-200/60">
                     <button
                         onClick={handleLogout}
