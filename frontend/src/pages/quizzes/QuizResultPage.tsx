@@ -18,8 +18,7 @@ import { ErrorFallbackComponent } from '../../components/common/ErrorFallbackCom
 
 const QuizResultPage = () => {
     const { quizId } = useParams();
-    const [resultsData, setResultsData] =
-        useState<GetQuizResultsPayloadTypes | null>(null);
+    const [resultsData, setResultsData] = useState<GetQuizResultsPayloadTypes | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const QuizResultPage = () => {
                 if (error instanceof Error) {
                     toast.error(error?.message);
                 } else {
-                    toast.error('Failed to submit quiz');
+                    toast.error('Failed to fetch quiz results');
                 }
             } finally {
                 setLoading(false);
@@ -43,7 +42,6 @@ const QuizResultPage = () => {
         fetchResults();
     }, [quizId]);
 
-    // 1. Handle Loading State
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-[60vh]">
@@ -52,18 +50,16 @@ const QuizResultPage = () => {
         );
     }
 
-    // 2. Handle Null State (Crucial: Added "return" here)
     if (!resultsData) {
         return (
             <div className="flex items-center justify-center min-h-[60vh]">
                 <div className="text-center">
-                    <p className="text-slate-600 text-lg">
-                        Quiz Results not found.
-                    </p>
+                    <p className="text-slate-600 text-lg">Quiz Results not found.</p>
                 </div>
             </div>
         );
     }
+    
     const { quiz, results } = resultsData;
     const score = quiz.score;
     const totalQns = results.length;
@@ -77,18 +73,19 @@ const QuizResultPage = () => {
     };
 
     const getScoreMessage = (score: number) => {
-        if (score >= 90) return 'Outstanding! ';
-        if (score >= 80) return 'Great Job! ';
-        if (score >= 70) return 'Good Work! ';
-        if (score >= 60) return 'Not bad! ';
+        if (score >= 90) return 'Outstanding!';
+        if (score >= 80) return 'Great Job!';
+        if (score >= 70) return 'Good Work!';
+        if (score >= 60) return 'Not bad!';
         return 'Keep practicing';
     };
+    
     return (
         <div className="max-w-5xl mx-auto">
             <ErrorBoundary
                 fallbackRender={props => <ErrorFallbackComponent {...props} />}
             >
-                {/* Back button  */}
+                {/* Back button */}
                 <div className="mb-6">
                     <Link
                         to={`/documents/${quiz.document._id}`}
@@ -103,7 +100,7 @@ const QuizResultPage = () => {
                 </div>
                 <Pageheader title={`${quiz.title || 'Quiz'} Results`} />
 
-                {/* Score Card  */}
+                {/* Score Card */}
                 <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200 rounded-2xl shadow-xl shadow-slate-200/50 p-8 mb-8">
                     <div className="text-center space-y-6">
                         <div className="inline-flex items-center justify-center w-15 h-15 rounded-2xl bg-linear-to-br from-emerald-100 to-teal-100 shadow-lg shadow-emerald-500/20">
@@ -117,7 +114,6 @@ const QuizResultPage = () => {
                             <p className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-2">
                                 You Score
                             </p>
-
                             <div
                                 className={`inline-block text-5xl font-bold bg-linear-to-r ${getScoreColor(
                                     score
@@ -163,7 +159,7 @@ const QuizResultPage = () => {
                     </div>
                 </div>
 
-                {/* Qns Review */}
+                {/* Questions Review */}
                 <div className="space-y-6">
                     <div className="flex items-center gap-3 mb-2">
                         <BookOpen
@@ -176,18 +172,8 @@ const QuizResultPage = () => {
                     </div>
 
                     {results.map((res, ind) => {
-                        const usrAnsIndex = res.options.findIndex(
-                            opt => opt === res.selectedAnswer
-                        );
-                        const correctAnsIndex = res.correctAnswer.startsWith(
-                            'O'
-                        )
-                            ? parseInt(res.correctAnswer.substring(1)) - 1
-                            : res.options.findIndex(
-                                  opt => opt === res.correctAnswer
-                              );
                         const is_Correct = res.isCorrect;
-
+                        
                         return (
                             <div
                                 key={ind}
@@ -226,22 +212,20 @@ const QuizResultPage = () => {
                                 </div>
 
                                 <div className="space-y-3 mb-4">
-                                    {res.options.map((opt, ind) => {
-                                        const isCorrectOption =
-                                            ind === correctAnsIndex;
-                                        const isuserAns = ind === usrAnsIndex;
-                                        const isWrongAns =
-                                            isuserAns && !is_Correct;
+                                    {res.options.map((opt, idx) => {
+                                        const isCorrectOption = opt === res.correctAnswer;
+                                        const isUserSelected = opt === res.selectedAnswer;
+                                        const isWrongAns = isUserSelected && !is_Correct;
 
                                         return (
                                             <div
-                                                key={ind}
+                                                key={idx}
                                                 className={`relative px-4 py-3 rounded-lg border-2 transition-all duration-200 ${
                                                     isCorrectOption
                                                         ? 'bg-emerald-50 border-emerald-300 shadow-lg shadow-emerald-500/30'
                                                         : isWrongAns
-                                                          ? 'bg-rose-50 border-rose-300'
-                                                          : 'bg-slate-50 border-slate-200'
+                                                        ? 'bg-rose-50 border-rose-300'
+                                                        : 'bg-slate-50 border-slate-200'
                                                 }`}
                                             >
                                                 <div className="flex items-center justify-between gap-3">
@@ -250,32 +234,27 @@ const QuizResultPage = () => {
                                                             isCorrectOption
                                                                 ? 'text-emerald-900'
                                                                 : isWrongAns
-                                                                  ? 'text-rose-900'
-                                                                  : 'text-slate-700'
+                                                                ? 'text-rose-900'
+                                                                : 'text-slate-700'
                                                         }`}
                                                     >
                                                         {opt}
                                                     </span>
                                                     <div className="flex items-center gap-2">
-                                                        {isCorrectOption && (
-                                                            <span className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-100 border border-emerald-300 rounded-lg text-xs font-semibold text-emerald-700">
-                                                                <CheckCircle2
-                                                                    className="w-3  h-3"
-                                                                    strokeWidth={
-                                                                        2.5
-                                                                    }
-                                                                />
-                                                                Correct
+                                                        {isUserSelected && (
+                                                            <span
+                                                                className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold ${
+                                                                    isCorrectOption
+                                                                        ? 'bg-emerald-100 border border-emerald-300 text-emerald-700'
+                                                                        : 'bg-rose-100 border border-rose-300 text-rose-700'
+                                                                }`}
+                                                            >
+                                                                {isCorrectOption ? '✓ Your Answer' : '✗ Your Answer'}
                                                             </span>
                                                         )}
-                                                        {isWrongAns && (
-                                                            <span className="inline-flex items-center gap-1 px-2 py-1 bg-rose-100 border border-rose-300 rounded-lg text-xs font-semibold text-rose-700">
-                                                                <XCircle
-                                                                    className="w-3 h-3"
-                                                                    strokeWidth={
-                                                                        2.5
-                                                                    }
-                                                                />
+                                                        {isCorrectOption && !isUserSelected && (
+                                                            <span className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-100 border border-emerald-300 rounded-lg text-xs font-semibold text-emerald-700">
+                                                                ✓ Correct Answer
                                                             </span>
                                                         )}
                                                     </div>
@@ -285,7 +264,7 @@ const QuizResultPage = () => {
                                     })}
                                 </div>
 
-                                {/* Explanation  */}
+                                {/* Explanation */}
                                 {res.explanation && (
                                     <div className="p-4 bg-linear-to-br from-slate-50 to-teal-100/50 border border-slate-200 rounded-xl">
                                         <div className="flex items-start gap-3">
@@ -311,9 +290,9 @@ const QuizResultPage = () => {
                     })}
                 </div>
 
-                {/* Action Button  */}
+                {/* Action Button */}
                 <div className="mt-8 flex justify-center">
-                    <Link to={`/documents/${quiz.document._id}`} className="">
+                    <Link to={`/documents/${quiz.document._id}`}>
                         <button className="group relative px-8 h-12 bg-linear-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/25 active:scale-95 overflow-hidden">
                             <span className="relative z-10 flex items-center gap-2">
                                 <ArrowLeft
