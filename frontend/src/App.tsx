@@ -33,6 +33,7 @@ const App = () => {
     );
     const QuizTakePage = lazy(() => import('./pages/quizzes/QuizTakePage'));
     const QuizResultPage = lazy(() => import('./pages/quizzes/QuizResultPage'));
+    const AIActionsPage = lazy(() => import('./pages/ai-actions/AIActionsPage'));
     const ProfilePage = lazy(() => import('./pages/profile/ProfilePage'));
 
     return (
@@ -87,6 +88,10 @@ const App = () => {
                         <Route
                             path="/quizzes/:quizId/results"
                             element={<QuizResultPage />}
+                        />
+                        <Route
+                            path="/ai-actions"
+                            element={<AIActionsPage />}
                         />
                         <Route path="/profile" element={<ProfilePage />} />
                     </Route>
