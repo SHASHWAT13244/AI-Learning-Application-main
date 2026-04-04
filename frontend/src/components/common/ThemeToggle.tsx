@@ -7,10 +7,10 @@ export const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/40 hover:bg-slate-200 dark:hover:bg-slate-700/60 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all duration-300 hover:scale-105 active:scale-95 backdrop-blur-sm border border-slate-200 dark:border-red-500/20 overflow-hidden"
+            className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/40 hover:bg-slate-200 dark:hover:bg-slate-700/60 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all duration-300 hover:scale-105 active:scale-95 backdrop-blur-sm border border-slate-200 dark:border-ruby-500/20 overflow-hidden"
             aria-label="Toggle theme"
         >
-            <span className="absolute inset-0 bg-gradient-to-r from-red-500/0 to-rose-500/0 group-hover:from-red-500/10 group-hover:to-rose-500/10 transition-all duration-500"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 to-teal-500/0 group-hover:from-emerald-500/10 group-hover:to-teal-500/10 dark:group-hover:from-ruby-500/10 dark:group-hover:to-purple-500/10 transition-all duration-500"></span>
             
             <span className="relative z-10 flex items-center gap-2">
                 {theme === 'light' ? (
