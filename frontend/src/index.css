@@ -16,3 +16,303 @@
         background-color: #fcfbfc;
     }
 }
+
+/* ============================================
+   DARK MODE - Matching Emerald/Teal Theme
+   ============================================ */
+
+.dark body {
+    background-color: #0a0a0f;
+}
+
+/* Cards & Containers */
+.dark .bg-white,
+.dark .bg-white\/80,
+.dark .bg-white\/90,
+.dark .bg-white\/95,
+.dark .bg-white\/80\.\.\., 
+.dark .bg-white\/80.backdrop-blur-xl,
+.dark .bg-white\/80.backdrop-blur-xl.border-2,
+.dark .bg-white\/80.backdrop-blur-xl.border {
+    background-color: rgba(18, 18, 24, 0.92) !important;
+    backdrop-filter: blur(12px);
+}
+
+/* Borders with emerald tint */
+.dark .border-slate-200,
+.dark .border-slate-200\/60,
+.dark .border-slate-200\/50,
+.dark .border-slate-100,
+.dark .border-neutral-200 {
+    border-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+.dark .border-emerald-200 {
+    border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Text Colors */
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-neutral-900 {
+    color: #f1f5f9 !important;
+}
+
+.dark .text-slate-700,
+.dark .text-neutral-700 {
+    color: #cbd5e1 !important;
+}
+
+.dark .text-slate-600,
+.dark .text-neutral-600 {
+    color: #94a3b8 !important;
+}
+
+.dark .text-slate-500,
+.dark .text-neutral-500 {
+    color: #64748b !important;
+}
+
+.dark .text-slate-400,
+.dark .text-neutral-400 {
+    color: #475569 !important;
+}
+
+/* Background Utilities */
+.dark .bg-slate-50,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-100,
+.dark .bg-slate-100\/50,
+.dark .bg-neutral-50 {
+    background-color: rgba(15, 23, 42, 0.5) !important;
+}
+
+.dark .bg-slate-200,
+.dark .bg-neutral-100 {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Emerald/Teal backgrounds */
+.dark .bg-emerald-50 {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.dark .bg-teal-50 {
+    background-color: rgba(20, 184, 166, 0.1) !important;
+}
+
+.dark .bg-emerald-100 {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+.dark .bg-teal-100 {
+    background-color: rgba(20, 184, 166, 0.15) !important;
+}
+
+/* Emerald/Teal text colors */
+.dark .text-emerald-600,
+.dark .text-emerald-700 {
+    color: #34d399 !important;
+}
+
+.dark .text-teal-600,
+.dark .text-teal-700 {
+    color: #2dd4bf !important;
+}
+
+/* Shadows */
+.dark .shadow-slate-200\/50,
+.dark .shadow-slate-200\/60,
+.dark .shadow-slate-200\/30,
+.dark .shadow-slate-200\/20,
+.dark .shadow-xl,
+.dark .shadow-lg,
+.dark .shadow-md,
+.dark .shadow-sm {
+    --tw-shadow-color: rgba(0, 0, 0, 0.6);
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--tw-shadow);
+}
+
+/* Emerald/Teal shadows */
+.dark .shadow-emerald-500\/25,
+.dark .shadow-emerald-500\/30,
+.dark .shadow-emerald-500\/20 {
+    --tw-shadow-color: rgba(16, 185, 129, 0.25);
+}
+
+/* Input Fields */
+.dark input,
+.dark textarea,
+.dark select {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    border-color: rgba(16, 185, 129, 0.2) !important;
+    color: #e2e8f0 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #475569 !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    border-color: #10b981 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Modals */
+.dark .fixed.inset-0 .bg-white,
+.dark .fixed.inset-0 .bg-white\/95 {
+    background-color: rgba(18, 18, 24, 0.96) !important;
+}
+
+.dark .fixed.inset-0 .bg-slate-900\/50 {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Scrollbar */
+.dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.3);
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.5);
+}
+
+/* Hover States */
+.dark .group:hover .bg-white\/80 {
+    background-color: rgba(28, 28, 36, 0.95) !important;
+}
+
+.dark .hover\:bg-slate-100:hover {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark .hover\:bg-slate-50:hover {
+    background-color: rgba(30, 41, 59, 0.4) !important;
+}
+
+/* Buttons - Secondary/Outline */
+.dark button:not(.bg-linear-to-r):not(.bg-linear-to-br) {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+    color: #cbd5e1 !important;
+}
+
+.dark button:not(.bg-linear-to-r):not(.bg-linear-to-br):hover {
+    background-color: rgba(30, 41, 59, 0.8) !important;
+    color: #f1f5f9 !important;
+}
+
+/* Toast Notifications */
+.dark .goober {
+    background-color: rgba(18, 18, 24, 0.96) !important;
+    color: #e2e8f0 !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Quiz Options */
+.dark .bg-slate-50\/50 {
+    background-color: rgba(15, 23, 42, 0.5) !important;
+}
+
+.dark .hover\:bg-white:hover {
+    background-color: rgba(30, 41, 59, 0.7) !important;
+}
+
+/* Progress Bars */
+.dark .bg-slate-100 {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+/* Chat Interface */
+.dark .bg-linear-to-br.from-slate-50\/50 {
+    background-image: linear-gradient(to bottom right, rgba(15, 23, 42, 0.5), rgba(18, 18, 24, 0.5)) !important;
+}
+
+/* Empty States */
+.dark .bg-linear-to-br.from-slate-50\/30 {
+    background-image: linear-gradient(to bottom right, rgba(15, 23, 42, 0.3), rgba(18, 18, 24, 0.3)) !important;
+}
+
+/* Sidebar */
+.dark .bg-white\/90 {
+    background-color: rgba(18, 18, 24, 0.95) !important;
+}
+
+/* Header */
+.dark .bg-white\/80 {
+    background-color: rgba(18, 18, 24, 0.9) !important;
+}
+
+/* Keep emerald/teal gradients vibrant */
+.dark .bg-linear-to-br,
+.dark .bg-linear-to-r {
+    --tw-gradient-from-stop: 5%;
+    --tw-gradient-to-stop: 95%;
+}
+
+.dark .from-emerald-500,
+.dark .to-teal-500 {
+    --tw-gradient-from: #10b981 !important;
+    --tw-gradient-to: #14b8a6 !important;
+}
+
+/* Flashcard */
+.dark .bg-white\/80.backdrop-blur-xl.border-2.border-slate-200 {
+    background-color: rgba(18, 18, 24, 0.9) !important;
+    border-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Dashboard cards */
+.dark .bg-white\/80.backdrop-blur-xl.border {
+    background-color: rgba(18, 18, 24, 0.9) !important;
+}
+
+/* Profile page */
+.dark .bg-white.border-neutral-200 {
+    background-color: rgba(18, 18, 24, 0.9) !important;
+}
+
+/* AI Actions page */
+.dark .bg-white\/80.backdrop-blur-xl.border-2 {
+    background-color: rgba(18, 18, 24, 0.9) !important;
+}
+
+/* Quiz results page */
+.dark .bg-emerald-50 {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.dark .bg-rose-50 {
+    background-color: rgba(244, 63, 94, 0.1) !important;
+}
+
+.dark .border-emerald-300 {
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.dark .border-rose-300 {
+    border-color: rgba(244, 63, 94, 0.3) !important;
+}
+
+.dark .text-emerald-900 {
+    color: #6ee7b7 !important;
+}
+
+.dark .text-rose-900 {
+    color: #fda4af !important;
+}
