@@ -1,5 +1,4 @@
 import { useAuth } from '../../context/AuthContext';
-// import type { useAuth } from "../../context/AuthContext";
 import {
     BookOpen,
     BrainCircuit,
@@ -8,6 +7,7 @@ import {
     LogOut,
     User,
     X,
+    HelpCircle,
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
@@ -28,17 +28,18 @@ export const Sider = ({
         { to: '/dashboard', text: 'Dashboard', icon: LayoutDashboard },
         { to: '/documents', text: 'Documents', icon: FileText },
         { to: '/flashcards', text: 'Flashcards', icon: BookOpen },
+        { to: '/quizzes', text: 'Quizzes', icon: HelpCircle },
         { to: '/profile', text: 'Profile', icon: User },
     ];
+    
     return (
         <>
             <div
                 className={`fixed inset-0 bg-black/30 z-40 md:hidden transition-opacity duration-300
-        ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 onClick={toggleSidebar}
                 aria-hidden="true"
             >
-                {' '}
             </div>
             <aside
                 className={`fixed top-0 left-0 h-full w-64 bg-white/90 backdrop-blur-lg border-r border-slate-200/50 z-50 md:relative md:w-64 md:shrink-0 md:flex md:flex-col md:translate-x-0 transition-transform duration-300 ease-in-out
@@ -74,15 +75,14 @@ export const Sider = ({
                             to={link.to}
                             key={link.to}
                             onClick={toggleSidebar}
-                            className={({
-                                isActive,
-                            }) => `group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200
-                ${
-                    isActive
-                        ? 'bg-linear-to-r from-emerald-500 to to-teal-500 text-white shadow-lg shadow-emerald-500/25'
-                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                }
-                `}
+                            className={({ isActive }) =>
+                                `group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200
+                                ${
+                                    isActive
+                                        ? 'bg-linear-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/25'
+                                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                                }`
+                            }
                         >
                             {({ isActive }) => (
                                 <>
@@ -90,9 +90,7 @@ export const Sider = ({
                                         size={18}
                                         strokeWidth={2.5}
                                         className={`transition-transform duration-200 ${
-                                            isActive
-                                                ? ''
-                                                : 'group-hover:scale-110'
+                                            isActive ? '' : 'group-hover:scale-110'
                                         }`}
                                     />
                                     {link.text}
