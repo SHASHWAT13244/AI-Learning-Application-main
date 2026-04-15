@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express';
 
 // Hardcoded admin credentials - login only, no env vars
-const ADMIN_EMAIL = 'admin@example.com';
+const ADMIN_EMAIL = 'admin@1.com';
 
 const admin = async (req: any, res: Response, next: NextFunction) => {
     try {
