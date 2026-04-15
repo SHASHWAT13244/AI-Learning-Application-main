@@ -9,6 +9,7 @@ import {
     X,
     HelpCircle,
     Sparkles,
+    Shield,
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
@@ -19,19 +20,28 @@ export const Sider = ({
     isSidebarOpen: boolean;
     toggleSidebar: () => void;
 }) => {
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
     const handleLogout = () => {
         logout();
     };
 
-    const navLinks = [
-        { to: '/dashboard', text: 'Dashboard', icon: LayoutDashboard },
-        { to: '/documents', text: 'Documents', icon: FileText },
-        { to: '/flashcards', text: 'Flashcards', icon: BookOpen },
-        { to: '/quizzes', text: 'Quizzes', icon: HelpCircle },
-        { to: '/ai-actions', text: 'AI Actions', icon: Sparkles },
-        { to: '/profile', text: 'Profile', icon: User },
-    ];
+    const getNavLinks = () => {
+        const links = [
+            { to: '/dashboard', text: 'Dashboard', icon: LayoutDashboard },
+            { to: '/documents', text: 'Documents', icon: FileText },
+            { to: '/flashcards', text: 'Flashcards', icon: BookOpen },
+            { to: '/quizzes', text: 'Quizzes', icon: HelpCircle },
+            { to: '/ai-actions', text: 'AI Actions', icon: Sparkles },
+            { to: '/profile', text: 'Profile', icon: User },
+        ];
+        
+        // Add admin link only if logged in user is admin (email matches hardcoded admin)
+        if (user?.email === 'admin@example.com') {
+            links.push({ to: '/admin', text: 'Admin', icon: Shield });
+        }
+        
+        return links;
+    };
     
     return (
         <>
@@ -69,7 +79,7 @@ export const Sider = ({
                 </div>
 
                 <nav className="flex-1 px-3 py-6 space-y-1.5">
-                    {navLinks.map(link => (
+                    {getNavLinks().map(link => (
                         <NavLink
                             to={link.to}
                             key={link.to}
