@@ -7,6 +7,7 @@ export interface userTypes {
     password?: string;
     profileImage?: string | null;
     id?: string;
+    role?: 'user' | 'admin';
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -33,6 +34,7 @@ export interface UserTypes {
     username: string;
     email: string;
     profileImage?: string | null;
+    role?: 'user' | 'admin';
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -329,4 +331,57 @@ export interface chatMessagesType {
     content: string;
     timestamp: Date;
     releventChunks?: string | null | number;
+}
+
+// Admin Types
+export interface AdminUserTypes {
+    _id: string;
+    username: string;
+    email: string;
+    profileImage?: string | null;
+    createdAt?: Date;
+    updatedAt?: Date;
+    documentCount?: number;
+    flashcardCount?: number;
+    quizCount?: number;
+}
+
+export interface AdminStatsTypes {
+    totalUsers: number;
+    totalDocuments: number;
+    totalFlashcards: number;
+    totalQuizzes: number;
+    completedQuizzes: number;
+    recentSignups: number;
+    topUsers: Array<{
+        user: { username: string; email: string };
+        documentCount: number;
+    }>;
+}
+
+export interface AdminDocumentTypes {
+    _id: string;
+    title: string;
+    fileName: string;
+    fileSize: number;
+    status: string;
+    userId: { username: string; email: string; _id: string };
+    createdAt?: Date;
+}
+
+export interface AdminUsersResponseTypes {
+    success: boolean;
+    count: number;
+    data: AdminUserTypes[];
+}
+
+export interface AdminStatsResponseTypes {
+    success: boolean;
+    data: AdminStatsTypes;
+}
+
+export interface AdminDocumentsResponseTypes {
+    success: boolean;
+    count: number;
+    data: AdminDocumentTypes[];
 }
