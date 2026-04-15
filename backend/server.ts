@@ -17,6 +17,7 @@ import flashcardRouter from './routes/flashCardRoutes';
 import AIRouter from './routes/aiRoutes';
 import QuizRouter from './routes/quizRoutes';
 import ProgressRouter from './routes/progressRouter';
+import AdminRouter from './routes/adminRoutes';
 
 // // ES6  module__dirname altenative
 // const __filename = fileURLToPath(import.meta.url);
@@ -65,6 +66,7 @@ app.use('/api/flashcard', flashcardRouter);
 app.use('/api/ai', AIRouter);
 app.use('/api/quiz', QuizRouter);
 app.use('/api/progress', ProgressRouter);
+app.use('/api/admin', AdminRouter);
 
 //error handler
 app.use(errorHanlder);
