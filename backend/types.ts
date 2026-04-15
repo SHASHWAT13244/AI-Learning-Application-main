@@ -7,6 +7,7 @@ export interface USER_TYPES {
     email: string;
     password: string;
     profileImage: string | null;
+    role?: 'user' | 'admin';
     createdAt?: Date;
     updatedAt?: Date;
 
