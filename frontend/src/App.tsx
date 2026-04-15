@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import ProtectRoute from './components/auth/ProtectRoute';
 import { useAuth } from './context/AuthContext';
+import AdminDashboardPage from './pages/admin/AdminDashboardPage';
 
 const App = () => {
     const { isAuthenticated } = useAuth();
@@ -94,6 +95,7 @@ const App = () => {
                             element={<AIActionsPage />}
                         />
                         <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/admin" element={<AdminDashboardPage />} />
                     </Route>
 
                     <Route path="*" element={<NotFoundPage />} />
