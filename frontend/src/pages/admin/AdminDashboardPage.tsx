@@ -3,7 +3,7 @@ import AdminServices from '../../services/AdminServices';
 import type { AdminStatsTypes, AdminUserTypes, AdminDocumentTypes } from '../../types';
 import { Pageheader } from '../../components/common/Pageheader';
 import Spinner from '../../components/common/Spinner';
-import { Users, FileText, BookOpen, HelpCircle, TrendingUp, UserPlus, Shield, Trash2, Eye } from 'lucide-react';
+import { Users, FileText, BookOpen, HelpCircle, TrendingUp, UserPlus, Shield, Trash2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallbackComponent } from '../../components/common/ErrorFallbackComponent';
