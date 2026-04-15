@@ -8,12 +8,10 @@ import toast from 'react-hot-toast';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallbackComponent } from '../../components/common/ErrorFallbackComponent';
 import { Modal } from '../../components/common/Modal';
-import { useAuth } from '../../context/AuthContext';
 
 type TabType = 'stats' | 'users' | 'documents';
 
 const AdminDashboardPage = () => {
-    const { user: currentUser } = useAuth();
     const [activeTab, setActiveTab] = useState<TabType>('stats');
     const [stats, setStats] = useState<AdminStatsTypes | null>(null);
     const [users, setUsers] = useState<AdminUserTypes[]>([]);
